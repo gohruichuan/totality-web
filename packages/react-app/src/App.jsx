@@ -436,7 +436,7 @@ function App(props) {
                     </Col>
                   </Row>
                 </Row>
-                <Row type="flex" align="middle" style={{ alignItems: 'center', marginTop: "-15vh"}}>
+                <Row type="flex" align="middle" style={{ alignItems: 'center', marginTop: "-15vh" }}>
                   <Col span={11}>
                   </Col>
                   <Col span={12}>
@@ -445,53 +445,104 @@ function App(props) {
                 </Row>
               </div>
               <div className="section">
-              <Row justify="space-around" align="middle">
-                <Col span={8}>
+                <Row justify="center">
+                  <Col span={9}>
                     <h2 style={{ fontSize: "5vw" }}>
                       Umbraphile Universe
                     </h2>
-
                     <p>
-                    TOTALITY is a collection of 1,919 uniquely
-                    generative Solar Eclipses with 3,840,000,000
-                    combinations living in the blockchain
+                      TOTALITY is a collection of 1,919 uniquely
+                      generative Solar Eclipses with 3,840,000,000
+                      combinations living in the blockchain <br></br> <br></br>
 
-                    Each solar eclipse artwork is generated and
-                    animated using R programming
+                      Each solar eclipse artwork is generated and
+                      animated using R programming
                     </p>
-                </Col>
-                <Col span={8}>
-                    {/* <h2 style={{ fontSize: "2vw" }}>
-                      ART
-                    </h2> */}
-                </Col>
-              </Row>
-                {/* <Row type="flex" align="middle" style={{ alignItems: 'center', height: '100vh' }}>
+                  </Col>
                   <Col span={10}>
-                    <h2 style={{ fontSize: "2vw" }}>
-                      BLAH BLAH 22
+                    <Row gutter={[16, 16]}>
+                      <Col span={8}>
+                        <Image width={200} src={require('./marketing1.gif')} />
+                      </Col>
+                      <Col span={8}>
+                        <Image width={200} src={require('./marketing2.gif')} />
+                      </Col>
+                      <Col span={8}>
+                        <Image width={200} src={require('./marketing3.gif')} />
+                      </Col>
+                    </Row>
+                    <Row gutter={[16, 16]}>
+                      <Col span={8}>
+                        <Image width={200} src={require('./marketing4.gif')} />
+                      </Col>
+                      <Col span={8}>
+                        <Image width={200} src={require('./marketing5.gif')} />
+                      </Col>
+                      <Col span={8}>
+                        <Image width={200} src={require('./marketing6.gif')} />
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row justify="center">
+                  <Col span={9}>
+                  </Col>
+                  <Col span={10}>
+                    <h2>
+                      Minting Coming Soon
                     </h2>
                   </Col>
-                  <Col span={14}>
-                    <h2 style={{ fontSize: "2vw" }}>
-                      BLAH BLAH 2
-                    </h2>
-                    <h3 style={{ fontSize: "1.5vw", paddingRight: "15rem" }}>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </h3>
-                  </Col>
-                </Row> */}
+                </Row>
               </div>
               <div className="section">
-                <Row type="flex" align="middle" style={{ alignItems: 'center', height: '100vh' }}>
-                  <Col span={10}></Col>
-                  <Col span={14}>
-                    <h2 style={{ fontSize: "2vw" }}>
-                      BLAH BLAH 3
+                <Row justify="center">
+                  <Col span={19}>
+                    <h2 style={{ fontSize: "5vw" }}>
+                      FAQ
                     </h2>
-                    <h3 style={{ fontSize: "1.5vw", paddingRight: "15rem" }}>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </h3>
+                    <h2>
+                      What is Totality's design inspiration?
+                    </h2>
+                    <p style={{ marginBottom: "5vw" }}>
+                    On May 29, 1919, the solar eclipse affirmed the prediction of Einstein’s theory of general relativity,
+                    ascribing gravity to a warp in the geometry of space-time, that gravity could bend light beams. <br></br><br></br>
+
+                    Totality art designs consists of stars, solar eclipse, gravitational force, magnetic fields, and many more
+                    </p>
+
+                    <h2>
+                      Is Totality a good investment?
+                    </h2>
+                    <p style={{ marginBottom: "5vw" }}>
+                    Totality is totally about you. We believe in giving back our Eclipse holders by giving back 10% 
+                    of this fee is proportionally redistributed to all Eclipse holders. <br></br><br></br>
+
+                    This means, every time there is a new mint, 10% of the cost is redistributed to our Eclipse holders,
+                    earning rewards by being a supporter of the community!
+                    </p>
+
+                    <h2>
+                      Totality's utility
+                    </h2>
+                    <p style={{ marginBottom: "5vw" }}>
+                    Totality is not just an art project, it is a project that focuses on utility with technical 
+                    advancements as the project grows. <br></br><br></br>
+
+                    We will be creating Totality Fractionalized vault of $Totality tokens which would be distributed to
+                    Eclipse holders, enable staking, and creating liquidity pool
+                    </p>
+
+                    <h2>
+                      Totality x Aritsts
+                    </h2>
+                    <p style={{ marginBottom: "5vw" }}>
+                    Totality is a community driven project that would define our roadmap together. <br></br><br></br>
+
+                    We would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or 
+                    generative using AI models and build a metaverse. <br></br><br></br>
+
+                    Tell us an artist to collaborate with on <a href="">Discord</a>
+                    </p>
                   </Col>
                 </Row>
               </div>
