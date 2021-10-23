@@ -503,46 +503,117 @@ function App(props) {
                     <h2>
                       What is Totality's design inspiration?
                     </h2>
-                    <p style={{ marginBottom: "5vw" }}>
-                    On May 29, 1919, the solar eclipse affirmed the prediction of Einstein’s theory of general relativity,
-                    ascribing gravity to a warp in the geometry of space-time, that gravity could bend light beams. <br></br><br></br>
+                    <p style={{ marginBottom: "3vw" }}>
+                      On May 29, 1919, the solar eclipse affirmed the prediction of Einstein’s theory of general relativity,
+                      ascribing gravity to a warp in the geometry of space-time, that gravity could bend light beams. <br></br><br></br>
 
-                    Totality art designs consists of stars, solar eclipse, gravitational force, magnetic fields, and many more
+                      Totality art designs consists of stars, solar eclipse, gravitational force, magnetic fields, and many more
                     </p>
 
                     <h2>
                       Is Totality a good investment?
                     </h2>
-                    <p style={{ marginBottom: "5vw" }}>
-                    Totality is totally about you. We believe in giving back our Eclipse holders by giving back 10% 
-                    of this fee is proportionally redistributed to all Eclipse holders. <br></br><br></br>
+                    <p style={{ marginBottom: "3vw" }}>
+                      Totality is totally about you. We believe in giving back our Eclipse holders by giving back 10%
+                      of this fee is proportionally redistributed to all Eclipse holders. <br></br><br></br>
 
-                    This means, every time there is a new mint, 10% of the cost is redistributed to our Eclipse holders,
-                    earning rewards by being a supporter of the community!
+                      This means, every time there is a new mint, 10% of the cost is redistributed to our Eclipse holders,
+                      earning rewards by being a supporter of the community!
                     </p>
 
                     <h2>
                       Totality's utility
                     </h2>
-                    <p style={{ marginBottom: "5vw" }}>
-                    Totality is not just an art project, it is a project that focuses on utility with technical 
-                    advancements as the project grows. <br></br><br></br>
+                    <p style={{ marginBottom: "3vw" }}>
+                      Totality is not just an art project, it is a project that focuses on utility with technical
+                      advancements as the project grows. <br></br><br></br>
 
-                    We will be creating Totality Fractionalized vault of $Totality tokens which would be distributed to
-                    Eclipse holders, enable staking, and creating liquidity pool
+                      We will be creating Totality Fractionalized vault of $Totality tokens which would be distributed to
+                      Eclipse holders, enable staking, and creating liquidity pool
                     </p>
 
                     <h2>
                       Totality x Aritsts
                     </h2>
-                    <p style={{ marginBottom: "5vw" }}>
-                    Totality is a community driven project that would define our roadmap together. <br></br><br></br>
+                    <p style={{ marginBottom: "3vw" }}>
+                      Totality is a community driven project that would define our roadmap together. <br></br><br></br>
 
-                    We would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or 
-                    generative using AI models and build a metaverse. <br></br><br></br>
+                      We would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or
+                      generative art using AI models. Which would contribute into building a metaverse. <br></br><br></br>
 
-                    Tell us an artist to collaborate with on <a href="">Discord</a>
+                      Tell us an artist to collaborate with on <a href="">Discord</a>
                     </p>
+                  </Col>
+                </Row>
+              </div>
+              <div className="section">
+                <Row justify="center">
+                  <Col span={19}>
+                    <h2 style={{ fontSize: "5vw" }}>
+                      Roadmap v1
+                    </h2>
+                    <Row style={{ marginBottom: "3vw" }}>
+                      <Col span={4}>
+                        <Image width={70} preview={false} src={require('./roadmap-10.svg')} />
+                      </Col>
+                      <Col span={18} style={{ alignSelf: "end" }}>
+                        <p style={{ marginBottom: "3vw" }}>
+                        10 Totality NFTs airdropped to our Umbraphile community (through contests, raffles, and more)
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginBottom: "3vw" }}>
+                      <Col span={4}>
+                        <Image width={70} preview={false} src={require('./roadmap-25.svg')} />
+                      </Col>
+                      <Col span={18} style={{ alignSelf: "center" }}>
+                        <p style={{ marginBottom: "3vw" }}>
+                        5 Totality NFTs airdropped to our Umbraphile community (through contests, raffles, and more)
+                        <br></br><br></br>
+                        Chill out in Eclipse Chasers Lo-fi playlist
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginBottom: "3vw" }}>
+                      <Col span={4}>
+                        <Image width={70} preview={false} src={require('./roadmap-50.svg')} />
+                      </Col>
+                      <Col span={18} style={{ alignSelf: "center" }}>
+                        <p style={{ marginBottom: "3vw" }}>
+                        4 Totality NFTs airdropped to our Umbraphile community
+                        (through contests, raffles, and more)
+                        <br></br><br></br>
+                        Collaboration with artists on Gen 2 Totality NFT art using AI models/hand-drawn art
+                        <br></br><br></br>
+                        Listing Totality on Rarity tool
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginBottom: "3vw" }}>
+                      <Col span={4}>
+                        <Image width={70} preview={false} src={require('./roadmap-75.svg')} />
+                      </Col>
+                      <Col span={18} style={{ alignSelf: "center" }}>
+                        <p style={{ marginBottom: "3vw" }}>
+                        4 Totality NFTs airdropped to our Umbraphile community
+                        (through contests, raffles, and more)
+                        <br></br><br></br>
+                        Creation of Totality Fractionalized vault for staking of $Totality token
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginBottom: "3vw" }}>
+                      <Col span={4}>
+                        <Image width={80} preview={false} src={require('./roadmap-100.svg')} />
+                      </Col>
+                      <Col span={18} style={{ alignSelf: "center" }}>
+                        <p style={{ marginBottom: "3vw" }}>
+                        Roadmap v2 preparation
+                        <br></br><br></br>
+                        Preparation for Gen 2 Totality NFT utility for Eclipse holders
+                        </p>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
               </div>
