@@ -1,0 +1,70 @@
+.App {
+  /* text-align: center; */
+}
+@font-face {
+  font-family: nasalization-rg;
+  src: url(./nasalization-rg.otf);
+}
+
+@font-face {
+  font-family: ProximaNovaA-Regular;
+  src: url(./ProximaNovaA-Regular.ttf);
+}
+
+p {
+  font-family: ProximaNovaA-Regular;
+  font-size: 1vw;
+  letter-spacing: 3px;
+}
+
+h1, h2, h3, h5{
+  font-family: nasalization-rg;
+  /* font-weight: bold !important; */
+  /* font-stretch: condensed; */
+  color: rgba(255,255,255,1) !important;
+}
+
+html { 
+  background: url(hero.svg) no-repeat fixed;
+  /* background-size: 50vw; */
+  /* background-position: -80%; */
+  background-color: black !important;
+}
+
+.section{
+  margin-top: 15vh;
+  /* background-position: -80%; */
+}
+body{
+  background-color: transparent !important;
+}
+
+.fp-tableCell {
+  display: block !important;
+}
+
+.ant-anchor{
+  position: unset !important;
+  padding-left: 0px !important;
+}
+
+.ant-anchor-link{
+  font-family: nasalization-rg !important;
+  /* font-weight: bold !important; */
+  font-stretch: condensed !important;
+  font-size: 1.5rem;
+  cursor: "pointer";
+  padding: 1rem 0 1rem 0px !important;
+}
+
+.ant-drawer-mask{
+  position: absolute;
+  /* top: 0px; */
+  /* left: 0px; */
+  /* width: 100%; */
+  height: 0px;
+  background-color: rgba(0, 0, 0, 0) !important;
+  /* opacity: 0 !important;
+  transition: opacity 0.3s linear 0s, height 0s ease 0.3s;
+  pointer-events: none; */
+}
