@@ -12,6 +12,7 @@ packages/hardhat/deployments
 !packages/react-app/src/contracts/external_contracts.js
 packages/hardhat/cache*
 packages/hardhat/env
+packages/reactapp/env
 
 packages/**/data
 
