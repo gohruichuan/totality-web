@@ -396,7 +396,6 @@ function App(props) {
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
       {/* <Header /> */}
-      {networkDisplay}
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
@@ -459,7 +458,7 @@ function App(props) {
                       animated using R programming
                     </p>
                   </Col>
-                  <Col span={10}>
+                  <Col span={9.5}>
                     <Row gutter={[16, 16]}>
                       <Col span={8}>
                         <Image width={200} src={require('./marketing1.gif')} />
@@ -489,7 +488,7 @@ function App(props) {
                   </Col>
                   <Col span={10}>
                     <h2>
-                      Minting Coming Soon
+                      Minting Coming Soon...
                     </h2>
                   </Col>
                 </Row>
@@ -617,6 +616,23 @@ function App(props) {
                   </Col>
                 </Row>
               </div>
+              <div className="section">
+                <Row justify="center">
+                  <Col span={19}>
+                    <h2 style={{ fontSize: "5vw" }}>
+                      Join our Umbraphile Community
+                    </h2>
+                    <Row style={{ marginBottom: "3vw" }}>
+                      <Col span={19} style={{ alignSelf: "end" }}>
+                      <p style={{ marginBottom: "3vw" }}>
+                        Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
+                        Tell us an artist to collaborate with on <a href="">Discord</a>
+                      </p>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+              </div>
             </div>
           </Route>
 
@@ -635,7 +651,7 @@ function App(props) {
       {/* <ThemeSwitch /> */}
 
       {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-      <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
+      {/* <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
         <Account
           address={address}
           localProvider={localProvider}
@@ -667,9 +683,10 @@ function App(props) {
             >
               Mint
             </Button>
+            {networkDisplay}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
