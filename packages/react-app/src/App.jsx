@@ -445,7 +445,7 @@ function App(props) {
               </div>
               <div className="section">
                 <Row justify="center">
-                  <Col span={9}>
+                  <Col sm={20} xl={9}>
                     <h2 style={{ fontSize: "5vw" }}>
                       Umbraphile Universe
                     </h2>
