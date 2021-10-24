@@ -445,7 +445,7 @@ function App(props) {
               </div>
               <div className="section">
                 <Row justify="center">
-                  <Col sm={20} lg={9}>
+                  <Col sm={20} lg={10} xl={9}>
                     <h2 style={{ fontSize: "5vw" }}>
                       Umbraphile Universe
                     </h2>
@@ -458,7 +458,7 @@ function App(props) {
                       animated using R programming
                     </p>
                   </Col>
-                  <Col span={9.5}>
+                  <Col span={9.5} lg={10}>
                     <Row gutter={[16, 16]} style={{marginBottom: "1rem"}}>
                       <Col span={8}>
                         <Image className="scalable-image" src={require('./marketing1.gif')} />
@@ -484,9 +484,9 @@ function App(props) {
                   </Col>
                 </Row>
                 <Row justify="center">
-                  <Col span={9}>
+                  <Col span={9} xl={9}>
                   </Col>
-                  <Col span={10}>
+                  <Col span={10} xl={9.5}>
                     <h2>
                       Minting Coming Soon...
                     </h2>
@@ -502,7 +502,7 @@ function App(props) {
                     <h2>
                       What is Totality's design inspiration?
                     </h2>
-                    <p style={{ marginBottom: "3vw" }}>
+                    <p style={{ marginBottom: "3rem" }}>
                       On May 29, 1919, the solar eclipse affirmed the prediction of Einstein’s theory of general relativity,
                       ascribing gravity to a warp in the geometry of space-time, that gravity could bend light beams. <br></br><br></br>
 
@@ -512,7 +512,7 @@ function App(props) {
                     <h2>
                       Is Totality a good investment?
                     </h2>
-                    <p style={{ marginBottom: "3vw" }}>
+                    <p style={{ marginBottom: "3rem" }}>
                       Totality is totally about you. We believe in giving back our Eclipse holders by giving back 10%
                       of this fee is proportionally redistributed to all Eclipse holders. <br></br><br></br>
 
@@ -523,7 +523,7 @@ function App(props) {
                     <h2>
                       Totality's utility
                     </h2>
-                    <p style={{ marginBottom: "3vw" }}>
+                    <p style={{ marginBottom: "3rem" }}>
                       Totality is not just an art project, it is a project that focuses on utility with technical
                       advancements as the project grows. <br></br><br></br>
 
@@ -534,7 +534,7 @@ function App(props) {
                     <h2>
                       Totality x Aritsts
                     </h2>
-                    <p style={{ marginBottom: "3vw" }}>
+                    <p style={{ marginBottom: "3rem" }}>
                       Totality is a community driven project that would define our roadmap together. <br></br><br></br>
 
                       We would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or
@@ -551,34 +551,34 @@ function App(props) {
                     <h2 style={{ fontSize: "5vw" }}>
                       Roadmap v1
                     </h2>
-                    <Row style={{ marginBottom: "3vw" }}>
+                    <Row style={{ marginBottom: "3rem" }}>
                       <Col span={4}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-10.svg')} />
                       </Col>
-                      <Col span={18} style={{ alignSelf: "end" }}>
-                        <p style={{ marginBottom: "3vw" }}>
+                      <Col span={18} style={{ alignSelf: "center" }}>
+                        <p style={{ marginBottom: "3rem" }}>
                         10 Totality NFTs airdropped to our Umbraphile community (through contests, raffles, and more)
                         </p>
                       </Col>
                     </Row>
-                    <Row style={{ marginBottom: "3vw" }}>
+                    <Row style={{ marginBottom: "3rem" }}>
                       <Col span={4}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-25.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3vw" }}>
+                        <p style={{ marginBottom: "3rem" }}>
                         5 Totality NFTs airdropped to our Umbraphile community (through contests, raffles, and more)
                         <br></br><br></br>
                         Chill out in Eclipse Chasers Lo-fi playlist
                         </p>
                       </Col>
                     </Row>
-                    <Row style={{ marginBottom: "3vw" }}>
+                    <Row style={{ marginBottom: "3rem" }}>
                       <Col span={4}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-50.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3vw" }}>
+                        <p style={{ marginBottom: "3rem" }}>
                         4 Totality NFTs airdropped to our Umbraphile community
                         (through contests, raffles, and more)
                         <br></br><br></br>
@@ -588,12 +588,12 @@ function App(props) {
                         </p>
                       </Col>
                     </Row>
-                    <Row style={{ marginBottom: "3vw" }}>
+                    <Row style={{ marginBottom: "3rem" }}>
                       <Col span={4}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-75.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3vw" }}>
+                        <p style={{ marginBottom: "3rem" }}>
                         4 Totality NFTs airdropped to our Umbraphile community
                         (through contests, raffles, and more)
                         <br></br><br></br>
@@ -601,12 +601,12 @@ function App(props) {
                         </p>
                       </Col>
                     </Row>
-                    <Row style={{ marginBottom: "3vw" }}>
+                    <Row style={{ marginBottom: "3rem" }}>
                       <Col span={4}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-100.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3vw" }}>
+                        <p style={{ marginBottom: "3rem" }}>
                         Roadmap v2 preparation
                         <br></br><br></br>
                         Preparation for Gen 2 Totality NFT utility for Eclipse holders
@@ -622,9 +622,9 @@ function App(props) {
                     <h2 style={{ fontSize: "5vw" }}>
                       Join our Umbraphile Community
                     </h2>
-                    <Row style={{ marginBottom: "3vw" }}>
+                    <Row style={{ marginBottom: "3rem" }}>
                       <Col span={19} style={{ alignSelf: "end" }}>
-                      <p style={{ marginBottom: "3vw" }}>
+                      <p style={{ marginBottom: "3rem" }}>
                         Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
                         Tell us an artist to collaborate with on <a href="">Discord</a>
                       </p>

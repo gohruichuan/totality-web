@@ -13,7 +13,7 @@
 
 p {
   font-family: ProximaNovaA-Regular;
-  font-size: 1rem;
+  font-size: 1.5rem;
   letter-spacing: 2px;
 }
 
@@ -75,8 +75,8 @@ body{
   display: block;
   width: auto;
   height: auto;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 250px;
+  max-height: 250px;
   /* margin: 20px auto; */
 }
 
@@ -84,20 +84,15 @@ body{
   display: block;
   width: auto;
   height: auto;
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 500px;
+  max-height: 500px;
+  padding-right: 3px !important;
+
+  /* padding-right: 20px; */
   /* margin: 20px auto; */
 }
 
 @media only screen and (max-width: 600px) {
-  .scalable-roadmap-image{
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 70px;
-    max-height: 70px;
-    /* margin: 20px auto; */
-  }
 
   .scalable-image{
     display: block;
@@ -106,5 +101,9 @@ body{
     max-width: 300px;
     max-height: 300px;
     /* margin: 20px auto; */
+  }
+
+  p {
+    font-size: 0.5rem;
   }
 }
