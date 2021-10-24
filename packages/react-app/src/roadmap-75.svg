@@ -1,4 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="80" height="106" viewBox="0 0 73 106">
+  <defs>  
+    <style type="text/css">
+      @font-face {
+        font-family: nasalization-rg;
+        src: url(./nasalization-rg.otf);
+      }
+    </style>
+  </defs>
   <g id="Group_26" data-name="Group 26" transform="translate(-148 -4610)">
     <g id="Group_23" data-name="Group 23" transform="translate(0 195)">
       <g id="Group_17" data-name="Group 17" transform="translate(0 390)">
@@ -9,7 +17,7 @@
     </g>
     <g id="Group_24" data-name="Group 24" transform="translate(3 184)">
       <g id="Group_25" data-name="Group 25" transform="translate(-8 10)">
-        <text id="_75_" data-name="75%" transform="translate(178 4475)" fill="#fff" font-size="20" font-family="NasalizationRg-Regular, Nasalization" letter-spacing="0.1em"><tspan x="0" y="0">75%</tspan></text>
+        <text id="_75_" data-name="75%" transform="translate(178 4475)" fill="#fff" font-size="20" font-family="NasalizationRg, Nasalization" letter-spacing="0.1em"><tspan x="0" y="0">75%</tspan></text>
       </g>
     </g>
   </g>

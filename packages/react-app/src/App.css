@@ -26,6 +26,8 @@ h1, h2, h3, h5{
 
 html { 
   background: url(hero.svg) no-repeat fixed;
+  background-size: cover;
+  width: 100%; 
   /* background-size: 50vw; */
   /* background-position: -80%; */
   background-color: black !important;
@@ -67,4 +69,42 @@ body{
   /* opacity: 0 !important;
   transition: opacity 0.3s linear 0s, height 0s ease 0.3s;
   pointer-events: none; */
+}
+
+.scalable-image{
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+  /* margin: 20px auto; */
+}
+
+.scalable-roadmap-image{
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100px;
+  max-height: 100px;
+  /* margin: 20px auto; */
+}
+
+@media only screen and (max-width: 600px) {
+  .scalable-roadmap-image{
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 70px;
+    max-height: 70px;
+    /* margin: 20px auto; */
+  }
+
+  .scalable-image{
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    /* margin: 20px auto; */
+  }
 }

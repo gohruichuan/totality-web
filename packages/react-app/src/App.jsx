@@ -445,7 +445,7 @@ function App(props) {
               </div>
               <div className="section">
                 <Row justify="center">
-                  <Col sm={20} xl={9}>
+                  <Col sm={20} lg={9}>
                     <h2 style={{ fontSize: "5vw" }}>
                       Umbraphile Universe
                     </h2>
@@ -459,26 +459,26 @@ function App(props) {
                     </p>
                   </Col>
                   <Col span={9.5}>
-                    <Row gutter={[16, 16]}>
+                    <Row gutter={[16, 16]} style={{marginBottom: "1rem"}}>
                       <Col span={8}>
-                        <Image width={200} src={require('./marketing1.gif')} />
+                        <Image className="scalable-image" src={require('./marketing1.gif')} />
                       </Col>
                       <Col span={8}>
-                        <Image width={200} src={require('./marketing2.gif')} />
+                        <Image className="scalable-image" src={require('./marketing2.gif')} />
                       </Col>
                       <Col span={8}>
-                        <Image width={200} src={require('./marketing3.gif')} />
+                        <Image className="scalable-image" src={require('./marketing3.gif')} />
                       </Col>
                     </Row>
                     <Row gutter={[16, 16]}>
                       <Col span={8}>
-                        <Image width={200} src={require('./marketing4.gif')} />
+                        <Image className="scalable-image" src={require('./marketing4.gif')} />
                       </Col>
                       <Col span={8}>
-                        <Image width={200} src={require('./marketing5.gif')} />
+                        <Image className="scalable-image" src={require('./marketing5.gif')} />
                       </Col>
                       <Col span={8}>
-                        <Image width={200} src={require('./marketing6.gif')} />
+                        <Image className="scalable-image" src={require('./marketing6.gif')} />
                       </Col>
                     </Row>
                   </Col>
@@ -553,7 +553,7 @@ function App(props) {
                     </h2>
                     <Row style={{ marginBottom: "3vw" }}>
                       <Col span={4}>
-                        <Image width={70} preview={false} src={require('./roadmap-10.svg')} />
+                        <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-10.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "end" }}>
                         <p style={{ marginBottom: "3vw" }}>
@@ -563,7 +563,7 @@ function App(props) {
                     </Row>
                     <Row style={{ marginBottom: "3vw" }}>
                       <Col span={4}>
-                        <Image width={70} preview={false} src={require('./roadmap-25.svg')} />
+                        <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-25.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3vw" }}>
@@ -575,7 +575,7 @@ function App(props) {
                     </Row>
                     <Row style={{ marginBottom: "3vw" }}>
                       <Col span={4}>
-                        <Image width={70} preview={false} src={require('./roadmap-50.svg')} />
+                        <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-50.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3vw" }}>
@@ -590,7 +590,7 @@ function App(props) {
                     </Row>
                     <Row style={{ marginBottom: "3vw" }}>
                       <Col span={4}>
-                        <Image width={70} preview={false} src={require('./roadmap-75.svg')} />
+                        <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-75.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3vw" }}>
@@ -603,7 +603,7 @@ function App(props) {
                     </Row>
                     <Row style={{ marginBottom: "3vw" }}>
                       <Col span={4}>
-                        <Image width={80} preview={false} src={require('./roadmap-100.svg')} />
+                        <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-100.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3vw" }}>

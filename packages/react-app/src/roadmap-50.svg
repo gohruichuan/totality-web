@@ -1,9 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="80.537" height="106" viewBox="0 0 80.537 106">
+  <defs>  
+    <style type="text/css">
+      @font-face {
+        font-family: nasalization-rg;
+        src: url(./nasalization-rg.otf);
+      }
+    </style>
+  </defs>
   <g id="Group_31" data-name="Group 31" transform="translate(-148 -4543)">
     <path id="Subtraction_5" data-name="Subtraction 5" d="M53,106A53.014,53.014,0,0,1,32.37,4.165,52.966,52.966,0,0,1,80.537,7.706a51.02,51.02,0,0,0,0,90.588A52.746,52.746,0,0,1,53,106Z" transform="translate(148 4543)" fill="#fff"/>
     <g id="Group_24" data-name="Group 24" transform="translate(1 117)">
       <g id="Group_25" data-name="Group 25" transform="translate(-8 10)">
-        <text id="_50_" data-name="50%" transform="translate(178 4475)" fill="#fff" font-size="20" font-family="NasalizationRg-Regular, Nasalization" letter-spacing="0.1em"><tspan x="0" y="0" fill="#000">50</tspan><tspan y="0" fill="#fff">%</tspan></text>
+        <text id="_50_" data-name="50%" transform="translate(178 4475)" fill="#fff" font-size="20" font-family="NasalizationRg, Nasalization" letter-spacing="0.1em"><tspan x="0" y="0" fill="#000">50</tspan><tspan y="0" fill="#fff">%</tspan></text>
       </g>
     </g>
   </g>
