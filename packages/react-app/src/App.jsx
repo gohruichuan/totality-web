@@ -194,11 +194,11 @@ function App(props) {
   ]);
 
   // keep track of a variable from the contract in the local React state:
-  // const balance = useContractReader(readContracts, "TheDomeTest", "balanceOf", [address]);
+  // const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
   // console.log("🤗 balance:", balance);
 
   // // 📟 Listen for broadcast events
-  // const transferEvents = useEventListener(readContracts, "TheDomeTest", "Transfer", localProvider, 1);
+  // const transferEvents = useEventListener(readContracts, "Totality", "Transfer", localProvider, 1);
   // console.log("📟 Transfer events:", transferEvents);
 
   //
@@ -213,9 +213,9 @@ function App(props) {
   //     for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
   //       try {
   //         console.log("GEtting token index", tokenIndex);
-  //         const tokenId = await readContracts.TheDomeTest.tokenOfOwnerByIndex(address, tokenIndex);
+  //         const tokenId = await readContracts.Totality.tokenOfOwnerByIndex(address, tokenIndex);
   //         console.log("tokenId", tokenId);
-  //         const tokenURI = await readContracts.TheDomeTest.tokenURI(tokenId);
+  //         const tokenURI = await readContracts.Totality.tokenURI(tokenId);
   //         console.log("tokenURI", tokenURI);
 
   //         const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
@@ -513,11 +513,9 @@ function App(props) {
                       Is Totality a good investment?
                     </h2>
                     <p style={{ marginBottom: "3rem" }}>
-                      Totality is totally about you. We believe in giving back our Eclipse holders by giving back 10%
-                      of this fee is proportionally redistributed to all Eclipse holders. <br></br><br></br>
+                      Totality is totally about you. We believe in giving back our Eclipse holders redistributed to all Eclipse holders. <br></br><br></br>
 
-                      This means, every time there is a new mint, 10% of the cost is redistributed to our Eclipse holders,
-                      earning rewards by being a supporter of the community!
+                      The more Eclipses you hold, the more rewards will you earn for being a supporter of our community!
                     </p>
 
                     <h2>
@@ -525,20 +523,15 @@ function App(props) {
                     </h2>
                     <p style={{ marginBottom: "3rem" }}>
                       Totality is not just an art project, it is a project that focuses on utility with technical
-                      advancements as the project grows. <br></br><br></br>
-
-                      We will be creating Totality Fractionalized vault of $Totality tokens which would be distributed to
-                      Eclipse holders, enable staking, and creating liquidity pool
+                      advancements as the project grows.
                     </p>
 
                     <h2>
                       Totality x Aritsts
                     </h2>
                     <p style={{ marginBottom: "3rem" }}>
-                      Totality is a community driven project that would define our roadmap together. <br></br><br></br>
-
-                      We would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or
-                      generative art using AI models. Which would contribute into building a metaverse. <br></br><br></br>
+                      Totality would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or
+                      generative art using AI models. Which would eventually contribute into building a metaverse. <br></br><br></br>
 
                       Tell us an artist to collaborate with on <a href="">Discord</a>
                     </p>
@@ -553,23 +546,12 @@ function App(props) {
                     </h2>
                     <Row style={{ marginBottom: "3rem" }}>
                       <Col span={4}>
-                        <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-10.svg')} />
-                      </Col>
-                      <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3rem" }}>
-                        10 Totality NFTs airdropped to our Umbraphile community (through contests, raffles, and more)
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row style={{ marginBottom: "3rem" }}>
-                      <Col span={4}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-25.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3rem" }}>
-                        5 Totality NFTs airdropped to our Umbraphile community (through contests, raffles, and more)
+                        Redistribute 5% reflection rewards will be redistributed to all Eclipse holders
                         <br></br><br></br>
-                        Chill out in Eclipse Chasers Lo-fi playlist
                         </p>
                       </Col>
                     </Row>
@@ -579,12 +561,9 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3rem" }}>
-                        4 Totality NFTs airdropped to our Umbraphile community
-                        (through contests, raffles, and more)
+                        Redistribute 10% reflection rewards will be redistributed to all Eclipse holders
                         <br></br><br></br>
-                        Collaboration with artists on Gen 2 Totality NFT art using AI models/hand-drawn art
-                        <br></br><br></br>
-                        Listing Totality on Rarity tool
+                        Chill out in Eclipse Chasers Lo-fi playlist
                         </p>
                       </Col>
                     </Row>
@@ -594,10 +573,7 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3rem" }}>
-                        4 Totality NFTs airdropped to our Umbraphile community
-                        (through contests, raffles, and more)
-                        <br></br><br></br>
-                        Creation of Totality Fractionalized vault for staking of $Totality token
+                        Redistribute 15% reflection rewards will be redistributed to all Eclipse holders
                         </p>
                       </Col>
                     </Row>
@@ -609,7 +585,13 @@ function App(props) {
                         <p style={{ marginBottom: "3rem" }}>
                         Roadmap v2 preparation
                         <br></br><br></br>
-                        Preparation for Gen 2 Totality NFT utility for Eclipse holders
+                        Treasury Fund to have 20 ETH for Gen 2 development
+                        <br></br><br></br>
+                        Work with artists to collab Gen 2 Totality NFT
+                        <br></br><br></br>
+                        Gen 2 Totality NFT utility for Eclipse holders
+                        <br></br><br></br>
+                        5% of royalties will be redistributed as NFT giveaway
                         </p>
                       </Col>
                     </Row>
@@ -638,7 +620,7 @@ function App(props) {
 
           <Route path="/debugcontracts">
             <Contract
-              name="TheDomeTest"
+              name="Totality"
               signer={userSigner}
               provider={localProvider}
               address={address}
@@ -677,7 +659,7 @@ function App(props) {
                   console.warn("tokenQuantity ! ", tokenQuantity);
                   console.warn("etherPrice ! ", etherPrice);
 
-                  tx(writeContracts.TheDomeTest.buy(2, { value: ethers.utils.parseEther(etherPrice) }));
+                  tx(writeContracts.Totality.buy(2, { value: ethers.utils.parseEther(etherPrice) }));
                 }
               }}
             >

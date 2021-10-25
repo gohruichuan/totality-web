@@ -4,7 +4,7 @@
         "name": "rinkeby",
         "chainId": "4",
         "contracts": {
-          "TheDomeTest": {
+          "Totality": {
             "address": "0xcC1aA1294E2D21bB0c8E57896Dc79be9021f62AD",
             "abi": [
               {
