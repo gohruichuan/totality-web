@@ -392,6 +392,19 @@ function App(props) {
     setMenuToggle(false);
   });
   const { Link } = Anchor;
+
+  const validateWhitelist = async (address) => {
+    console.warn("address ", address);
+    // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
+    const requestUrl = "http://localhost:4000/check/whitelist/" + address;
+    const getData = await fetch(requestUrl, { method: "GET", mode: 'cors', headers: { 'Content-Type': 'application/json', } })
+    let data = await getData.json();
+    console.warn("data ", data);
+    return data;
+  }
+
+  let [whitelistMessage, setWhitelistMessage] = useState();
+
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
@@ -459,7 +472,7 @@ function App(props) {
                     </p>
                   </Col>
                   <Col span={9.5} lg={10}>
-                    <Row gutter={[16, 16]} style={{marginBottom: "1rem"}}>
+                    <Row gutter={[16, 16]} style={{ marginBottom: "1rem" }}>
                       <Col span={8}>
                         <Image className="scalable-image" src={require('./marketing1.gif')} />
                       </Col>
@@ -550,8 +563,8 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3rem" }}>
-                        Redistribute 5% reflection rewards will be redistributed to all Eclipse holders
-                        <br></br><br></br>
+                          Redistribute 5% reflection rewards will be redistributed to all Eclipse holders
+                          <br></br><br></br>
                         </p>
                       </Col>
                     </Row>
@@ -561,9 +574,9 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3rem" }}>
-                        Redistribute 10% reflection rewards will be redistributed to all Eclipse holders
-                        <br></br><br></br>
-                        Chill out in Eclipse Chasers Lo-fi playlist
+                          Redistribute 10% reflection rewards will be redistributed to all Eclipse holders
+                          <br></br><br></br>
+                          Chill out in Eclipse Chasers Lo-fi playlist
                         </p>
                       </Col>
                     </Row>
@@ -573,7 +586,7 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3rem" }}>
-                        Redistribute 15% reflection rewards will be redistributed to all Eclipse holders
+                          Redistribute 15% reflection rewards will be redistributed to all Eclipse holders
                         </p>
                       </Col>
                     </Row>
@@ -583,15 +596,15 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p style={{ marginBottom: "3rem" }}>
-                        Roadmap v2 preparation
-                        <br></br><br></br>
-                        Treasury Fund to have 20 ETH for Gen 2 development
-                        <br></br><br></br>
-                        Work with artists to collab Gen 2 Totality NFT
-                        <br></br><br></br>
-                        Gen 2 Totality NFT utility for Eclipse holders
-                        <br></br><br></br>
-                        5% of royalties will be redistributed as NFT giveaway
+                          Roadmap v2 preparation
+                          <br></br><br></br>
+                          Treasury Fund to have 20 ETH for Gen 2 development
+                          <br></br><br></br>
+                          Work with artists to collab Gen 2 Totality NFT
+                          <br></br><br></br>
+                          Gen 2 Totality NFT utility for Eclipse holders
+                          <br></br><br></br>
+                          5% of royalties will be redistributed as NFT giveaway
                         </p>
                       </Col>
                     </Row>
@@ -606,10 +619,10 @@ function App(props) {
                     </h2>
                     <Row style={{ marginBottom: "3rem" }}>
                       <Col span={19} style={{ alignSelf: "end" }}>
-                      <p style={{ marginBottom: "3rem" }}>
-                        Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
-                        Tell us an artist to collaborate with on <a href="">Discord</a>
-                      </p>
+                        <p style={{ marginBottom: "3rem" }}>
+                          Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
+                          Tell us an artist to collaborate with on <a href="">Discord</a>
+                        </p>
                       </Col>
                     </Row>
                   </Col>
@@ -633,7 +646,7 @@ function App(props) {
       {/* <ThemeSwitch /> */}
 
       {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-      {/* <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
+      <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
         <Account
           address={address}
           localProvider={localProvider}
@@ -646,29 +659,48 @@ function App(props) {
           blockExplorer={blockExplorer}
         />
         <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
-
           <div style={{ padding: 32 }}>
             <Button
               onClick={() => {
                 if (!address) {
                   loadWeb3Modal();
                 } else {
-                  console.warn("MINT!");
-                  const tokenQuantity = 2;
-                  const etherPrice = (tokenQuantity * 0.08).toString();
-                  console.warn("tokenQuantity ! ", tokenQuantity);
-                  console.warn("etherPrice ! ", etherPrice);
-
-                  tx(writeContracts.Totality.buy(2, { value: ethers.utils.parseEther(etherPrice) }));
+                  const getValidateWhitelist = async () => {
+                    await validateWhitelist(address).then(res => {
+                      if (res.result === "Whitelisted") {
+                        setWhitelistMessage(
+                          <div style={{ zIndex: -1, position: "absolute", right: 154, top: 28, padding: 16, color: targetNetwork.color }}>
+                            {targetNetwork.name}asdasd
+                          </div>
+                        );
+                        console.warn("MINT!");
+                        const tokenQuantity = 2;
+                        const etherPrice = (tokenQuantity * 0.08).toString();
+                        console.warn("tokenQuantity ! ", tokenQuantity);
+                        console.warn("etherPrice ! ", etherPrice);
+                        // tx(writeContracts.Totality.buy(2, { value: ethers.utils.parseEther(etherPrice) }));
+                      } else {
+                        setWhitelistMessage(
+                          <div style={{ zIndex: -1, position: "absolute", right: 154, top: 28, padding: 16, color: targetNetwork.color }}>
+                            {targetNetwork.name}aasdasdsad
+                          </div>
+                        );
+                      }
+                    });
+                  }
+                  getValidateWhitelist();
+                  //now you can directly use jsonData
                 }
               }}
             >
               Mint
             </Button>
+            {whitelistMessage}
             {networkDisplay}
           </div>
         </div>
-      </div> */}
+      </div>
+
     </div>
   );
 }
