@@ -5,7 +5,7 @@
         "chainId": "4",
         "contracts": {
           "Totality": {
-            "address": "0xcC1aA1294E2D21bB0c8E57896Dc79be9021f62AD",
+            "address": "0x8bC0BD836059c134f29b684F1d389ad1593466e6",
             "abi": [
               {
                 "inputs": [],

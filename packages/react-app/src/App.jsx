@@ -700,7 +700,7 @@ function App(props) {
                         const etherPrice = (tokenQuantity * 0.08).toString();
                         console.warn("tokenQuantity ! ", tokenQuantity);
                         console.warn("etherPrice ! ", etherPrice);
-                        // tx(writeContracts.Totality.buy(2, { value: ethers.utils.parseEther(etherPrice) }));
+                        tx(writeContracts.Totality.presaleBuy(res.signature, res.nonce, res.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }));
                       } else {
                         setWhitelistMessage(
                           <div style={{ color: "red" }}>
