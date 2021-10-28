@@ -1,5 +1,5 @@
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { Alert, Button, Col, Row, Drawer, Anchor, Image } from "antd";
+import { Alert, Button, Col, Row, Drawer, Anchor, Image, Input } from "antd";
 import "antd/dist/antd.css";
 import React, { useCallback, useEffect, useState } from "react";
 // import ReactJson from "react-json-view";
@@ -139,7 +139,7 @@ function App(props) {
   const price = useExchangePrice(targetNetwork, mainnetProvider);
 
   /* 🔥 This hook will get the price of Gas from ⛽️ EtherGasStation */
-  const gasPrice = useGasPrice(targetNetwork, "fast");
+  const gasPrice = useGasPrice(targetNetwork, "average");
   // Use your injected provider from 🦊 Metamask or if you don't have it then instantly generate a 🔥 burner wallet.
   const userSigner = useUserSigner(injectedProvider, localProvider);
 
@@ -393,11 +393,11 @@ function App(props) {
   });
   const { Link } = Anchor;
 
-  const validateWhitelist = async (address) => {
+  const validateWhitelist = async (address, tokenQuantity) => {
     console.warn("address ", address);
     // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
-    const requestUrl = "http://localhost:4000/check/whitelist/" + address;
-    const getData = await fetch(requestUrl, { method: "GET", mode: 'cors', headers: { 'Content-Type': 'application/json', } })
+    const requestUrl = "http://localhost:4000/check/whitelist/" + address + "/" + tokenQuantity;
+    const getData = await fetch(requestUrl)
     let data = await getData.json();
     console.warn("data ", data);
     return data;
@@ -405,6 +405,7 @@ function App(props) {
 
   let [whitelistMessage, setWhitelistMessage] = useState();
 
+  let [tokenQuantity, setTokenQuantity] = useState(1); // default tokenQuantity
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
@@ -660,29 +661,50 @@ function App(props) {
         />
         <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
           <div style={{ padding: 32 }}>
+            <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} size="small" onChange={event => {
+              console.warn("event ", event.target.value);
+              setTokenQuantity(event.target.value)}
+            } />
             <Button
               onClick={() => {
+
+                console.warn("tokenQuantity ", tokenQuantity);
+                if(tokenQuantity == 0){
+
+                  console.warn("ENTERED");
+                  setWhitelistMessage(
+                    <div style={{ color: "red" }}>
+                      Quantity is 0
+                    </div>
+                  );
+                  return;
+                }
+
                 if (!address) {
                   loadWeb3Modal();
                 } else {
                   const getValidateWhitelist = async () => {
-                    await validateWhitelist(address).then(res => {
+                    await validateWhitelist(address, tokenQuantity).then(res => {
                       if (res.result === "Whitelisted") {
-                        setWhitelistMessage(
-                          <div style={{ zIndex: -1, position: "absolute", right: 154, top: 28, padding: 16, color: targetNetwork.color }}>
-                            {targetNetwork.name}asdasd
-                          </div>
-                        );
+                        // setWhitelistMessage(
+                        //   <p>
+                        //     Congratulations! <br></br>
+                        //     You are whitelisted and able to mint!
+                        //   </p>
+                        // );
+                        // await signMessage(address, tokenQuantity).then(res => {
+
+                        // });
+
                         console.warn("MINT!");
-                        const tokenQuantity = 2;
                         const etherPrice = (tokenQuantity * 0.08).toString();
                         console.warn("tokenQuantity ! ", tokenQuantity);
                         console.warn("etherPrice ! ", etherPrice);
                         // tx(writeContracts.Totality.buy(2, { value: ethers.utils.parseEther(etherPrice) }));
                       } else {
                         setWhitelistMessage(
-                          <div style={{ zIndex: -1, position: "absolute", right: 154, top: 28, padding: 16, color: targetNetwork.color }}>
-                            {targetNetwork.name}aasdasdsad
+                          <div style={{ color: "red" }}>
+                            Sorry! You are Not whitelisted!
                           </div>
                         );
                       }
@@ -695,6 +717,7 @@ function App(props) {
             >
               Mint
             </Button>
+            {tokenQuantity}
             {whitelistMessage}
             {networkDisplay}
           </div>
