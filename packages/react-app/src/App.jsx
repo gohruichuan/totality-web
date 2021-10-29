@@ -686,12 +686,7 @@ function App(props) {
                   const getValidateWhitelist = async () => {
                     await validateWhitelist(address, tokenQuantity).then(res => {
                       if (res.result === "Whitelisted") {
-                        // setWhitelistMessage(
-                        //   <p>
-                        //     Congratulations! <br></br>
-                        //     You are whitelisted and able to mint!
-                        //   </p>
-                        // );
+                       
                         // await signMessage(address, tokenQuantity).then(res => {
 
                         // });
@@ -701,7 +696,15 @@ function App(props) {
                         console.warn("tokenQuantity ! ", tokenQuantity);
                         console.warn("etherPrice ! ", etherPrice);
                         tx(writeContracts.Totality.presaleBuy(res.signature, res.nonce, res.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }));
-                      } else {
+                      } 
+                      else if( res.result === "Whitelisted" ) {
+                        setWhitelistMessage(
+                          <p>
+                            You have exceed the presale mint limit of 2
+                          </p>
+                        );
+                      }
+                      else {
                         setWhitelistMessage(
                           <div style={{ color: "red" }}>
                             Sorry! You are Not whitelisted!
