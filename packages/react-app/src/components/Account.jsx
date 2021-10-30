@@ -64,6 +64,18 @@ export default function Account({
         logout
       </Button>,
     );
+  } else {
+    modalButtons.push(
+    <Button
+        key="connectwallet"
+        style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
+        shape="round"
+        size="large"
+        onClick={loadWeb3Modal}
+      >
+        Connect Wallet
+      </Button>
+      );
   }
 
   const { currentTheme } = useThemeSwitcher();
