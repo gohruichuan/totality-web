@@ -194,8 +194,8 @@ function App(props) {
   ]);
 
   // keep track of a variable from the contract in the local React state:
-  // const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
-  // console.log("🤗 balance:", balance);
+  const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
+  console.log("🤗 balance:", balance);
 
   // // 📟 Listen for broadcast events
   // const transferEvents = useEventListener(readContracts, "Totality", "Transfer", localProvider, 1);
@@ -204,7 +204,9 @@ function App(props) {
   //
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
   //
-  // const yourBalance = balance && balance.toNumber && balance.toNumber();
+  const yourBalance = balance && balance.toNumber && balance.toNumber();
+  console.log("🤗 yourBalance:", yourBalance);
+
   // const [yourCollectibles, setYourCollectibles] = useState();
 
   // useEffect(() => {
@@ -392,11 +394,21 @@ function App(props) {
     setMenuToggle(false);
   });
   const { Link } = Anchor;
-
+  
   const validateWhitelist = async (address, tokenQuantity) => {
     console.warn("address ", address);
     // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
     const requestUrl = "http://localhost:4000/check/whitelist/" + address + "/" + tokenQuantity;
+    const getData = await fetch(requestUrl)
+    let data = await getData.json();
+    console.warn("data ", data);
+    return data;
+  }
+
+  const revertWhitelist = async (address, tokenQuantity) => {
+    console.warn("address ", address);
+    // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
+    const requestUrl = "http://localhost:4000/revert/whitelist/" + address + "/" + tokenQuantity;
     const getData = await fetch(requestUrl)
     let data = await getData.json();
     console.warn("data ", data);
@@ -686,22 +698,37 @@ function App(props) {
                   const getValidateWhitelist = async () => {
                     await validateWhitelist(address, tokenQuantity).then(res => {
                       if (res.result === "Whitelisted") {
-                       
-                        // await signMessage(address, tokenQuantity).then(res => {
-
-                        // });
-
-                        console.warn("MINT!");
+                        console.warn("MINTING!");
                         const etherPrice = (tokenQuantity * 0.08).toString();
                         console.warn("tokenQuantity ! ", tokenQuantity);
                         console.warn("etherPrice ! ", etherPrice);
-                        tx(writeContracts.Totality.presaleBuy(res.signature, res.nonce, res.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }));
+                        tx(writeContracts.Totality.presaleBuy(res.signature, res.nonce, res.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }), 
+                        update => {
+                          console.warn("📡 Transaction Update:", update);
+                          if (update && (update.status !== "confirmed" && update.status !== 1 && update.status !== "sent" && update.status !== "pending")) {
+                            console.warn("📡 TX FAILED");
+                            revertWhitelist(address, res.tokenQuantity)
+                          } else if (update.status === "confirmed" || update.status === 1){
+                            // const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
+                            // const yourBalance = balance && balance.toNumber && balance.toNumber();
+                            // console.warn("yourBalance ", yourBalance);
+                            // for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
+                            //   const tokenId = readContracts.Totality.tokenOfOwnerByIndex(address, tokenIndex);
+                            //   console.warn("tokenId ", tokenId);
+                            // }
+                            setWhitelistMessage(
+                              <div style={{ color: "green" }}>
+                                Successfully minted {res.tokenQuantity} tokens!
+                              </div>
+                            );
+                          }
+                        });
                       } 
-                      else if( res.result === "Whitelisted" ) {
+                      else if( res.result === "Mint exceed limit" ) {
                         setWhitelistMessage(
-                          <p>
+                          <div style={{ color: "red" }}>
                             You have exceed the presale mint limit of 2
-                          </p>
+                          </div>
                         );
                       }
                       else {
@@ -720,13 +747,11 @@ function App(props) {
             >
               Mint
             </Button>
-            {tokenQuantity}
             {whitelistMessage}
-            {networkDisplay}
+            {/* {networkDisplay} */}
           </div>
         </div>
       </div>
-
     </div>
   );
 }
