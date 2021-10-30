@@ -673,6 +673,11 @@ function App(props) {
         />
         <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
           <div style={{ padding: 32 }}>
+          <form action="?" method="POST">
+            <div class="g-recaptcha" data-sitekey="6LeK4QMdAAAAANekL14gqheznwSRx7MJ-U_n0TLy"></div>
+            <br/>
+            <input type="submit" value="Submit"/>
+          </form>
             <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} size="small" onChange={event => {
               console.warn("event ", event.target.value);
               setTokenQuantity(event.target.value)}
