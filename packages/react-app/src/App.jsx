@@ -405,10 +405,20 @@ function App(props) {
     return data;
   }
 
-  const revertWhitelist = async (address, tokenQuantity) => {
+  const successfulMint = async (address, tokenQuantity) => {
     console.warn("address ", address);
     // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
-    const requestUrl = "http://localhost:4000/revert/whitelist/" + address + "/" + tokenQuantity;
+    const requestUrl = "http://localhost:4000/successful/mint/" + address + "/" + tokenQuantity;
+    const getData = await fetch(requestUrl)
+    let data = await getData.json();
+    console.warn("data ", data);
+    return data;
+  }
+
+  const failMint = async (address) => {
+    console.warn("address ", address);
+    // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
+    const requestUrl = "http://localhost:4000/fail/mint/" + address;
     const getData = await fetch(requestUrl)
     let data = await getData.json();
     console.warn("data ", data);
@@ -673,18 +683,22 @@ function App(props) {
         />
         <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
           <div style={{ padding: 32 }}>
-          <form action="?" method="POST">
+          {/* <form action="?" method="POST">
             <div class="g-recaptcha" data-sitekey="6LeK4QMdAAAAANekL14gqheznwSRx7MJ-U_n0TLy"></div>
             <br/>
-            <input type="submit" value="Submit"/>
-          </form>
+          </form> */}
             <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} size="small" onChange={event => {
               console.warn("event ", event.target.value);
               setTokenQuantity(event.target.value)}
             } />
             <Button
               onClick={() => {
-
+                // var v = grecaptcha.getResponse();
+                // if(v.length == 0)
+                // {
+                //   console.error("grecaptcha failed");
+                //   return;
+                // }
                 console.warn("tokenQuantity ", tokenQuantity);
                 if(tokenQuantity == 0){
 
@@ -712,7 +726,7 @@ function App(props) {
                           console.warn("📡 Transaction Update:", update);
                           if (update && (update.status !== "confirmed" && update.status !== 1 && update.status !== "sent" && update.status !== "pending")) {
                             console.warn("📡 TX FAILED");
-                            revertWhitelist(address, res.tokenQuantity)
+                            failMint(address)
                           } else if (update.status === "confirmed" || update.status === 1){
                             // const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
                             // const yourBalance = balance && balance.toNumber && balance.toNumber();
@@ -721,14 +735,23 @@ function App(props) {
                             //   const tokenId = readContracts.Totality.tokenOfOwnerByIndex(address, tokenIndex);
                             //   console.warn("tokenId ", tokenId);
                             // }
-                            setWhitelistMessage(
-                              <div style={{ color: "green" }}>
-                                Successfully minted {res.tokenQuantity} tokens!
-                              </div>
-                            );
+                            successfulMint(address, res.tokenQuantity).then( res => {
+                              setWhitelistMessage(
+                                <div style={{ color: "green" }}>
+                                  Successfully minted {res.tokenQuantity} tokens!
+                                </div>
+                              );
+                            });
                           }
                         });
                       } 
+                      else if( res.result === "pending" ) {
+                        setWhitelistMessage(
+                          <div>
+                            Please wait while we proccess your mint!
+                          </div>
+                        );
+                      }
                       else if( res.result === "Mint exceed limit" ) {
                         setWhitelistMessage(
                           <div style={{ color: "red" }}>

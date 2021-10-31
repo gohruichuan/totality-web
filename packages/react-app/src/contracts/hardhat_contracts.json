@@ -5,7 +5,7 @@
         "chainId": "4",
         "contracts": {
           "Totality": {
-            "address": "0xf908CA192f3F46755b268FB74b26F08Fb5B0feB3",
+            "address": "0x3E0A4Fba0fAd7E4FdE992950CaadBbF0C80987CD",
             "abi": [
               {
                 "inputs": [],
@@ -216,19 +216,6 @@
                     "internalType": "uint256",
                     "name": "",
                     "type": "uint256"
-                  }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-              },
-              {
-                "inputs": [],
-                "name": "baseURI",
-                "outputs": [
-                  {
-                    "internalType": "string",
-                    "name": "",
-                    "type": "string"
                   }
                 ],
                 "stateMutability": "view",
