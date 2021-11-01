@@ -1,5 +1,5 @@
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { Alert, Button, Col, Row, Drawer, Anchor, Image, Input } from "antd";
+import { Alert, Button, Col, Row, Image, Input } from "antd";
 import "antd/dist/antd.css";
 import React, { useCallback, useEffect, useState } from "react";
 // import ReactJson from "react-json-view";
@@ -18,82 +18,22 @@ import {
   useOnBlock,
   useUserSigner,
 } from "./hooks";
-import ReactFullpage from "@fullpage/react-fullpage";
-
-// const { BufferList } = require("bl");
-// https://www.npmjs.com/package/ipfs-http-client
-// const ipfsAPI = require("ipfs-http-client");
-// const ipfs = ipfsAPI({ host: "ipfs.infura.io", port: "5001", protocol: "https" });
+import ReCAPTCHA from "react-google-recaptcha";
+var CryptoJS = require("crypto-js");
+const crypto = require("crypto");
+require('dotenv').config()
+var jwt = require('jsonwebtoken');
 
 const { ethers } = require("ethers");
-const DemoBox = props => <p className={`height-${props.value}`}>{props.children}</p>;
-/*
-    Welcome to 🏗 scaffold-eth !
-
-    Code:
-    https://github.com/austintgriffith/scaffold-eth
-
-    Support:
-    https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA
-    or DM @austingriffith on twitter or telegram
-
-    You should get your own Infura.io ID and put it in `constants.js`
-    (this is your connection to the main Ethereum network for ENS etc.)
-
-
-    🌏 EXTERNAL CONTRACTS:
-    You can also bring in contract artifacts in `constants.js`
-    (and then use the `useExternalContractLoader()` hook!)
-*/
-
 /// 📡 What chain are your contracts deployed to?
 const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
-const DEBUG = true;
+const DEBUG = false;
 const NETWORKCHECK = true;
-
-// EXAMPLE STARTING JSON:
-// const STARTING_JSON = {
-//   description: "It's actually a bison?",
-//   external_url: "https://austingriffith.com/portfolio/paintings/", // <-- this can link to a page for the specific file too
-//   image: "https://austingriffith.com/images/paintings/buffalo.jpg",
-//   name: "Buffalo",
-//   attributes: [
-//     {
-//       trait_type: "BackgroundColor",
-//       value: "green",
-//     },
-//     {
-//       trait_type: "Eyes",
-//       value: "googly",
-//     },
-//   ],
-// };
-
-// helper function to "Get" from IPFS
-// you usually go content.toString() after this...
-// const getFromIPFS = async hashToGet => {
-//   for await (const file of ipfs.get(hashToGet)) {
-//     console.log(file.path);
-//     if (!file.content) continue;
-//     const content = new BufferList();
-//     for await (const chunk of file.content) {
-//       content.append(chunk);
-//     }
-//     console.log(content);
-//     return content;
-//   }
-// };
 
 // 🛰 providers
 if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
-// const mainnetProvider = getDefaultProvider("mainnet", { infura: INFURA_ID, etherscan: ETHERSCAN_KEY, quorum: 1 });
-// const mainnetProvider = new InfuraProvider("mainnet",INFURA_ID);
-//
-// attempt to connect to our own scaffold eth rpc and if that fails fall back to infura...
-// Using StaticJsonRpcProvider as the chainId won't change see https://github.com/ethers-io/ethers.js/issues/901
-const scaffoldEthProvider = null && navigator.onLine ? new ethers.providers.StaticJsonRpcProvider("https://rpc.scaffoldeth.io:48544") : null;
 const mainnetInfura = navigator.onLine ? new ethers.providers.StaticJsonRpcProvider("https://mainnet.infura.io/v3/" + INFURA_ID) : null;
 // ( ⚠️ Getting "failed to meet quorum" errors? Check your INFURA_I
 
@@ -131,7 +71,7 @@ const logoutOfWeb3Modal = async () => {
 };
 
 function App(props) {
-  const mainnetProvider = scaffoldEthProvider && scaffoldEthProvider._network ? scaffoldEthProvider : mainnetInfura;
+  const mainnetProvider = mainnetInfura;
 
   const [injectedProvider, setInjectedProvider] = useState();
   const [address, setAddress] = useState();
@@ -142,7 +82,6 @@ function App(props) {
   const gasPrice = useGasPrice(targetNetwork, "average");
   // Use your injected provider from 🦊 Metamask or if you don't have it then instantly generate a 🔥 burner wallet.
   const userSigner = useUserSigner(injectedProvider, localProvider);
-
   useEffect(() => {
     async function getAddress() {
       if (web3Modal.cachedProvider && userSigner) {
@@ -207,45 +146,6 @@ function App(props) {
   const yourBalance = balance && balance.toNumber && balance.toNumber();
   console.log("🤗 yourBalance:", yourBalance);
 
-  // const [yourCollectibles, setYourCollectibles] = useState();
-
-  // useEffect(() => {
-  //   const updateYourCollectibles = async () => {
-  //     const collectibleUpdate = [];
-  //     for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
-  //       try {
-  //         console.log("GEtting token index", tokenIndex);
-  //         const tokenId = await readContracts.Totality.tokenOfOwnerByIndex(address, tokenIndex);
-  //         console.log("tokenId", tokenId);
-  //         const tokenURI = await readContracts.Totality.tokenURI(tokenId);
-  //         console.log("tokenURI", tokenURI);
-
-  //         const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "");
-  //         console.log("ipfsHash", ipfsHash);
-
-  //         const jsonManifestBuffer = await getFromIPFS(ipfsHash);
-  //         const obj = JSON.parse(jsonManifestBuffer.toString())
-
-  //         try {
-  //           const jsonManifest = JSON.parse(jsonManifestBuffer.toString());
-  //           console.log("jsonManifest", jsonManifest);
-  //           collectibleUpdate.push({ id: tokenId, imageWithPath: "https://ipfs.io/ipfs/" + obj.image, owner: address, ...jsonManifest });
-  //         } catch (e) {
-  //           console.log(e);
-  //         }
-  //       } catch (e) {
-  //         console.log(e);
-  //       }
-  //     }
-  //     setYourCollectibles(collectibleUpdate);
-  //   };
-  //   updateYourCollectibles();
-  // }, [address, yourBalance]);
-
-  /*
-  const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
-  console.log("🏷 Resolved austingriffith.eth as:",addressFromENS)
-  */
 
   //
   // 🧫 DEBUG 👨🏻‍🔬
@@ -373,61 +273,72 @@ function App(props) {
   }, [setInjectedProvider]);
 
   useEffect(() => {
-    console.warn("web3Modal.cachedProvider ", web3Modal.cachedProvider);
+    // console.warn("web3Modal.cachedProvider ", web3Modal.cachedProvider);
     if (web3Modal.cachedProvider) {
       loadWeb3Modal();
     }
   }, [loadWeb3Modal]);
 
-  // const [route, setRoute] = useState();
-  // useEffect(() => {
-  //   setRoute(window.location.pathname);
-  // }, [setRoute]);
 
-  let [visible, setMenuToggle] = useState(false);
-
-  const openMenu = (_ => {
-    setMenuToggle(true);
-  });
-
-  const closeMenu = (_ => {
-    setMenuToggle(false);
-  });
-  const { Link } = Anchor;
-  
+  const genToken = () =>{
+    var token = jwt.sign({
+      data: crypto.randomBytes(9).toString("base64"),
+      iat: (new Date().getTime())/1000,
+      exp: (new Date().getTime() + 5 * 1000)/1000,
+    }, process.env.REACT_APP_API_SECRET_KEY);
+    return token;
+  }
   const validateWhitelist = async (address, tokenQuantity) => {
-    console.warn("address ", address);
-    // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
-    const requestUrl = "http://localhost:4000/check/whitelist/" + address + "/" + tokenQuantity;
-    const getData = await fetch(requestUrl)
+    const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address + "/" + tokenQuantity;
+    // const requestUrl = "http://localhost:4000/check/whitelist/" + address + "/" + tokenQuantity;
+    const getData = await fetch(requestUrl, {
+      method: "GET",
+      headers: {
+        'Authorization': 'Bearer '+ genToken()
+      }
+    });
     let data = await getData.json();
-    console.warn("data ", data);
     return data;
   }
 
   const successfulMint = async (address, tokenQuantity) => {
-    console.warn("address ", address);
-    // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
-    const requestUrl = "http://localhost:4000/successful/mint/" + address + "/" + tokenQuantity;
-    const getData = await fetch(requestUrl)
+    const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/successful/mint/" + address + "/" + tokenQuantity;
+    // const requestUrl = "http://localhost:4000/successful/mint/" + address + "/" + tokenQuantity;
+    const getData = await fetch(requestUrl, {
+      method: "GET",
+      headers: {
+        'Authorization': 'Bearer '+ genToken()
+      }
+    });
     let data = await getData.json();
-    console.warn("data ", data);
     return data;
   }
 
   const failMint = async (address) => {
-    console.warn("address ", address);
-    // const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/check/whitelist/" + address;
-    const requestUrl = "http://localhost:4000/fail/mint/" + address;
-    const getData = await fetch(requestUrl)
+    const requestUrl = "https://api-totality-nft-whitelist.herokuapp.com/fail/mint/" + address;
+    // const requestUrl = "http://localhost:4000/fail/mint/" + address;
+    const getData = await fetch(requestUrl, {
+      method: "GET",
+      headers: {
+        'Authorization': 'Bearer '+ genToken()
+      }
+    })
     let data = await getData.json();
-    console.warn("data ", data);
     return data;
   }
 
   let [whitelistMessage, setWhitelistMessage] = useState();
 
   let [tokenQuantity, setTokenQuantity] = useState(1); // default tokenQuantity
+
+  let [isVerified, setiIVerified] = useState(false); // default tokenQuantity
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
+    if(value){
+      setiIVerified(true);
+    }
+  }
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
@@ -683,26 +594,16 @@ function App(props) {
         />
         <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
           <div style={{ padding: 32 }}>
-          {/* <form action="?" method="POST">
-            <div class="g-recaptcha" data-sitekey="6LeK4QMdAAAAANekL14gqheznwSRx7MJ-U_n0TLy"></div>
-            <br/>
-          </form> */}
+            <ReCAPTCHA
+              sitekey="6LeK4QMdAAAAANekL14gqheznwSRx7MJ-U_n0TLy"
+              onChange={onChange}
+            />
             <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} size="small" onChange={event => {
-              console.warn("event ", event.target.value);
               setTokenQuantity(event.target.value)}
             } />
-            <Button
+            <Button disabled={!isVerified}
               onClick={() => {
-                // var v = grecaptcha.getResponse();
-                // if(v.length == 0)
-                // {
-                //   console.error("grecaptcha failed");
-                //   return;
-                // }
-                console.warn("tokenQuantity ", tokenQuantity);
-                if(tokenQuantity == 0){
-
-                  console.warn("ENTERED");
+                if(tokenQuantity === 0){
                   setWhitelistMessage(
                     <div style={{ color: "red" }}>
                       Quantity is 0
@@ -718,10 +619,13 @@ function App(props) {
                     await validateWhitelist(address, tokenQuantity).then(res => {
                       if (res.result === "Whitelisted") {
                         console.warn("MINTING!");
-                        const etherPrice = (tokenQuantity * 0.08).toString();
+                        const etherPrice = (tokenQuantity * 0.07).toString();
                         console.warn("tokenQuantity ! ", tokenQuantity);
                         console.warn("etherPrice ! ", etherPrice);
-                        tx(writeContracts.Totality.presaleBuy(res.signature, res.nonce, res.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }), 
+                        var bytes  = CryptoJS.AES.decrypt(res.ciphertext, process.env.REACT_APP_CRYPTO_SECRET_KEY);
+                        var decrypted =JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+
+                        tx(writeContracts.Totality.presaleBuy(decrypted.signature, decrypted.nonce, decrypted.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }), 
                         update => {
                           console.warn("📡 Transaction Update:", update);
                           if (update && (update.status !== "confirmed" && update.status !== 1 && update.status !== "sent" && update.status !== "pending")) {
@@ -735,10 +639,10 @@ function App(props) {
                             //   const tokenId = readContracts.Totality.tokenOfOwnerByIndex(address, tokenIndex);
                             //   console.warn("tokenId ", tokenId);
                             // }
-                            successfulMint(address, res.tokenQuantity).then( res => {
+                            successfulMint(address, decrypted.tokenQuantity).then( res => {
                               setWhitelistMessage(
                                 <div style={{ color: "green" }}>
-                                  Successfully minted {res.tokenQuantity} tokens!
+                                  Successfully minted {decrypted.tokenQuantity} tokens!
                                 </div>
                               );
                             });
@@ -776,7 +680,7 @@ function App(props) {
               Mint
             </Button>
             {whitelistMessage}
-            {/* {networkDisplay} */}
+            {networkDisplay}
           </div>
         </div>
       </div>
