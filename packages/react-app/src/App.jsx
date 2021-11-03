@@ -1,5 +1,6 @@
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { Alert, Button, Col, Row, Image, Input } from "antd";
+import { Alert, Button, Col, Row, Image, Input, Spin } from "antd";
+import { LoadingOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import React, { useCallback, useEffect, useState } from "react";
 // import ReactJson from "react-json-view";
@@ -31,11 +32,13 @@ const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
 const NETWORKCHECK = true;
-
+const IS_PRESALE_BUY = false;
+const IS_LAUNCH_BUY = true
+let PRICE = 0.07;
 // 🛰 providers
 if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
-const mainnetInfura = navigator.onLine ? new ethers.providers.StaticJsonRpcProvider("https://mainnet.infura.io/v3/" + INFURA_ID) : null;
-// ( ⚠️ Getting "failed to meet quorum" errors? Check your INFURA_I
+const scaffoldEthProvider = null && navigator.onLine ? new ethers.providers.StaticJsonRpcProvider("https://rpc.scaffoldeth.io:48544") : null;
+const mainnetInfura = navigator.onLine ? new ethers.providers.StaticJsonRpcProvider("https://mainnet.infura.io/v3/" + INFURA_ID) : null;// ( ⚠️ Getting "failed to meet quorum" errors? Check your INFURA_I
 
 // 🏠 Your local provider is usually pointed at your local blockchain
 const localProviderUrl = targetNetwork.rpcUrl;
@@ -71,12 +74,11 @@ const logoutOfWeb3Modal = async () => {
 };
 
 function App(props) {
-  const mainnetProvider = mainnetInfura;
-
+  const mainnetProvider = scaffoldEthProvider && scaffoldEthProvider._network ? scaffoldEthProvider : mainnetInfura;
   const [injectedProvider, setInjectedProvider] = useState();
   const [address, setAddress] = useState();
   /* 💵 This hook will get the price of ETH from 🦄 Uniswap: */
-  const price = useExchangePrice(targetNetwork, mainnetProvider);
+  // const price = useExchangePrice(targetNetwork, mainnetProvider);
 
   /* 🔥 This hook will get the price of Gas from ⛽️ EtherGasStation */
   const gasPrice = useGasPrice(targetNetwork, "average");
@@ -106,10 +108,10 @@ function App(props) {
   // const faucetTx = Transactor(localProvider, gasPrice);
 
   // 🏗 scaffold-eth is full of handy hooks like this one to get your balance:
-  const yourLocalBalance = useBalance(localProvider, address);
+  // const yourLocalBalance = useBalance(localProvider, address);
 
-  // Just plug in different 🛰 providers to get your balance on different chains:
-  const yourMainnetBalance = useBalance(mainnetProvider, address);
+  // // Just plug in different 🛰 providers to get your balance on different chains:
+  // const yourMainnetBalance = useBalance(mainnetProvider, address);
 
   // Load in your local 📝 contract and read a value from it:
   const readContracts = useContractLoader(localProvider);
@@ -120,21 +122,22 @@ function App(props) {
   // EXTERNAL CONTRACT EXAMPLE:
   //
   // If you want to bring in the mainnet DAI contract it would look like:
-  const mainnetContracts = useContractLoader(mainnetProvider);
+  // const mainnetContracts = useContractLoader(mainnetProvider);
 
   // If you want to call a function on a new block
-  useOnBlock(mainnetProvider, () => {
-    console.log(`⛓ A new mainnet block is here: ${mainnetProvider._lastBlockNumber}`);
-  });
+  // useOnBlock(mainnetProvider, () => {
+  //   console.log(`⛓ A new mainnet block is here: ${mainnetProvider._lastBlockNumber}`);
+  // });
 
   // Then read your DAI balance like:
-  const myMainnetDAIBalance = useContractReader(mainnetContracts, "DAI", "balanceOf", [
-    "0x34aA3F359A9D614239015126635CE7732c18fDF3",
-  ]);
+  // const myMainnetDAIBalance = useContractReader(mainnetContracts, "DAI", "balanceOf", [
+  //   "0x34aA3F359A9D614239015126635CE7732c18fDF3",
+  // ]);
 
   // keep track of a variable from the contract in the local React state:
-  const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
-  console.log("🤗 balance:", balance);
+  // const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
+  // console.log("🤗 balance:", balance);
+
 
   // // 📟 Listen for broadcast events
   // const transferEvents = useEventListener(readContracts, "Totality", "Transfer", localProvider, 1);
@@ -143,47 +146,67 @@ function App(props) {
   //
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
   //
-  const yourBalance = balance && balance.toNumber && balance.toNumber();
-  console.log("🤗 yourBalance:", yourBalance);
+  // const yourBalance = balance && balance.toNumber && balance.toNumber();
+  // console.log("🤗 yourBalance:", yourBalance);
 
+  // const totalSupplyBigNum = useContractReader(readContracts, "Totality", "totalSupply");
+  // console.log("CALLED INFURA");
+  // const totalSupply = totalSupplyBigNum && totalSupplyBigNum.toNumber();
+  
 
+  // const contract = new web3.eth.Contract(contractInfo.ABI, contractInfo.contract_address);
+
+  // console.warn("contract ", contract);
   //
   // 🧫 DEBUG 👨🏻‍🔬
   //
-  useEffect(() => {
-    if (
-      DEBUG &&
-      mainnetProvider &&
-      address &&
-      selectedChainId &&
-      yourLocalBalance &&
-      yourMainnetBalance &&
-      readContracts &&
-      writeContracts &&
-      mainnetContracts
-    ) {
-      console.log("_____________________________________ 🏗 scaffold-eth _____________________________________");
-      console.log("🌎 mainnetProvider", mainnetProvider);
-      console.log("🏠 localChainId", localChainId);
-      console.log("👩‍💼 selected address:", address);
-      console.log("🕵🏻‍♂️ selectedChainId:", selectedChainId);
-      console.log("💵 yourLocalBalance", yourLocalBalance ? ethers.utils.formatEther(yourLocalBalance) : "...");
-      console.log("💵 yourMainnetBalance", yourMainnetBalance ? ethers.utils.formatEther(yourMainnetBalance) : "...");
-      console.log("📝 readContracts", readContracts);
-      console.log("🌍 DAI contract on mainnet:", mainnetContracts);
-      console.log("💵 yourMainnetDAIBalance", myMainnetDAIBalance);
-      console.log("🔐 writeContracts", writeContracts);
-    }
-  }, [
-    mainnetProvider,
-    address,
-    selectedChainId,
-    yourLocalBalance,
-    yourMainnetBalance,
-    readContracts,
-    writeContracts,
-    mainnetContracts,
-  ]);
+  // useEffect(() => {
+  //   if (
+  //     DEBUG 
+  //     // &&
+  //     // mainnetProvider &&
+  //     // address &&
+  //     // selectedChainId &&
+  //     // yourLocalBalance &&
+  //     // yourMainnetBalance &&
+  //     // readContracts &&
+  //     // writeContracts &&
+  //     // mainnetContracts
+  //   ) {
+  //     console.log("_____________________________________ 🏗 scaffold-eth _____________________________________");
+  //     // console.log("🌎 mainnetProvider", mainnetProvider);
+  //     // console.log("🏠 localChainId", localChainId);
+  //     // console.log("👩‍💼 selected address:", address);
+  //     // console.log("🕵🏻‍♂️ selectedChainId:", selectedChainId);
+  //     // console.log("💵 yourLocalBalance", yourLocalBalance ? ethers.utils.formatEther(yourLocalBalance) : "...");
+  //     // console.log("💵 yourMainnetBalance", yourMainnetBalance ? ethers.utils.formatEther(yourMainnetBalance) : "...");
+  //     // console.log("📝 readContracts", readContracts);
+       
+  //     // console.log("🌍 DAI contract on mainnet:", mainnetContracts);
+  //     // console.log("💵 yourMainnetDAIBalance", myMainnetDAIBalance);
+  //     // console.log("🔐 writeContracts", writeContracts);
+  //   }
+  // }, [
+  //   // mainnetProvider,
+  //   // address,
+  //   // selectedChainId,
+  //   // yourLocalBalance,
+  //   // yourMainnetBalance,
+  //   readContracts,
+  //   // writeContracts,
+  //   // mainnetContracts,
+  // ]);
+
+  // const totalSupply = new Promise((resolve, reject) => {
+  //    readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => result.toNumber());
+  // });
+  
+  //  let totalSupply = readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(function(result) {
+  //   return result && result.toNumber();
+  //  });
+
+
+  // totalSupply && totalSupply.then( res => {return res});
 
   let networkDisplay = "";
   if (NETWORKCHECK && localChainId && selectedChainId && localChainId !== selectedChainId) {
@@ -280,11 +303,11 @@ function App(props) {
   }, [loadWeb3Modal]);
 
 
-  const genToken = () =>{
+  const genToken = () => {
     var token = jwt.sign({
       data: crypto.randomBytes(9).toString("base64"),
-      iat: (new Date().getTime())/1000,
-      exp: (new Date().getTime() + 5 * 1000)/1000,
+      iat: (new Date().getTime()) / 1000,
+      exp: (new Date().getTime() + 5 * 1000) / 1000,
     }, process.env.REACT_APP_API_SECRET_KEY);
     return token;
   }
@@ -294,7 +317,7 @@ function App(props) {
     const getData = await fetch(requestUrl, {
       method: "GET",
       headers: {
-        'Authorization': 'Bearer '+ genToken()
+        'Authorization': 'Bearer ' + genToken()
       }
     });
     let data = await getData.json();
@@ -307,7 +330,7 @@ function App(props) {
     const getData = await fetch(requestUrl, {
       method: "GET",
       headers: {
-        'Authorization': 'Bearer '+ genToken()
+        'Authorization': 'Bearer ' + genToken()
       }
     });
     let data = await getData.json();
@@ -320,7 +343,7 @@ function App(props) {
     const getData = await fetch(requestUrl, {
       method: "GET",
       headers: {
-        'Authorization': 'Bearer '+ genToken()
+        'Authorization': 'Bearer ' + genToken()
       }
     })
     let data = await getData.json();
@@ -331,13 +354,195 @@ function App(props) {
 
   let [tokenQuantity, setTokenQuantity] = useState(1); // default tokenQuantity
 
-  let [isVerified, setiIVerified] = useState(false); // default tokenQuantity
+  let [isCaptchaVerified, setCaptchaVerified] = useState(false);
+
+  let [totalSupply, setTotalSupply] = useState();
+
+  let [isLoading, setIsLoading] = useState(false);
+
+  let spinnerDiplay = "";
+
+  if(isLoading){
+  const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+    spinnerDiplay = (
+      <h4>
+      <Spin indicator={antIcon} /> Mint
+      </h4>
+    )
+  } else {
+    spinnerDiplay = (
+      <h4>
+        Mint
+      </h4>
+    )
+  }
+  // let [isCaptchaVerified, setCaptchaVerified] = useState(false); // default tokenQuantity
+
+
+  !totalSupply && readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
+
+  function refreshTotalSupply(){
+    readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
+  }
 
   function onChange(value) {
     console.log("Captcha value:", value);
-    if(value){
-      setiIVerified(true);
+    if (value) {
+      setCaptchaVerified(true);
     }
+  }
+
+
+  let mintDisplay = "";
+  if (!IS_LAUNCH_BUY && !IS_PRESALE_BUY) {
+    mintDisplay = (
+      <h2>
+        Minting Coming Soon...
+      </h2>
+    )
+  } else {
+
+    if(IS_PRESALE_BUY){
+      PRICE = 0.05;
+    }
+   
+    mintDisplay = (
+      
+      <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
+        <div style={{ padding: 32 }}>
+          <ReCAPTCHA
+            sitekey="6LeK4QMdAAAAANekL14gqheznwSRx7MJ-U_n0TLy"
+            onChange={onChange}
+          />
+          <br></br><br></br>
+          <h2>
+            <span style={{ marginRight: 88 }}>Price per Eclipse</span>
+            <span style={{float: "right"}}> {PRICE} ETH</span>
+          </h2>
+          <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} style={{ width: "23rem", borderRadius: 10 }} onChange={event => {
+            setTokenQuantity(event.target.value)
+          }} /> 
+          <br></br><br></br>
+          <h2>
+            <span style={{ marginRight: 50 }}> {totalSupply} / 1919 Minted</span>
+            <span style={{float: "right"}}>Total {(tokenQuantity * PRICE).toFixed(2)} ETH</span>
+          </h2>
+
+          <br></br><br></br>
+          <Button disabled={!isCaptchaVerified} style={{borderRadius: 10, backgroundColor:"white" }} size="large"
+            onClick={() => {
+              if (tokenQuantity === 0) {
+                setWhitelistMessage(
+                  <div style={{ color: "red" }}>
+                    Quantity is 0
+                  </div>
+                );
+                return;
+              }
+              if (!address) {
+                loadWeb3Modal();
+              } else {
+                if (!IS_PRESALE_BUY && IS_LAUNCH_BUY) { // Launch
+                  setIsLoading(true);
+                  const etherPrice = (tokenQuantity * PRICE).toString();
+                  console.warn("LAUNCH MINTING!");
+                  console.warn("tokenQuantity ! ", tokenQuantity);
+                  console.warn("etherPrice ! ", etherPrice);
+                  tx(writeContracts.Totality.buy(tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }),
+                    update => {
+                      setIsLoading(false);
+                      if (update.status === "confirmed" || update.status === 1) {
+                        refreshTotalSupply();
+                        setWhitelistMessage(
+                          <div style={{ color: "green" }}>
+                            Successfully minted {tokenQuantity} tokens!
+                          </div>
+                        );
+                      } else {
+                        setWhitelistMessage(
+                          <div style={{ color: "red" }}>
+                            Failed to mint {tokenQuantity} tokens!
+                          </div>
+                        );
+                      }
+                    });
+                } else if (IS_PRESALE_BUY && !IS_LAUNCH_BUY) { // PRESALE
+                  setIsLoading(true);
+                  const getValidateWhitelist = async () => {
+                    await validateWhitelist(address, tokenQuantity).then(res => {
+                      if (res.result === "Whitelisted") {
+                        const etherPrice = (tokenQuantity * PRICE).toString();
+
+                        console.warn("PRESALE MINTING!");
+                        console.warn("tokenQuantity ! ", tokenQuantity);
+                        console.warn("etherPrice ! ", etherPrice);
+
+                        var bytes = CryptoJS.AES.decrypt(res.ciphertext, process.env.REACT_APP_CRYPTO_SECRET_KEY);
+                        var decrypted = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+
+                        tx(writeContracts.Totality.presaleBuy(decrypted.signature, decrypted.nonce, decrypted.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }),
+                          update => {
+                            setIsLoading(false);
+
+                            console.warn("📡 Transaction Update:", update);
+                            if (update && (update.status !== "confirmed" && update.status !== 1 && update.status !== "sent" && update.status !== "pending")) {
+                              console.warn("📡 TX FAILED");
+                              failMint(address)
+                            } else if (update.status === "confirmed" || update.status === 1) {
+                              refreshTotalSupply();
+                              // const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
+                              // const yourBalance = balance && balance.toNumber && balance.toNumber();
+                              // console.warn("yourBalance ", yourBalance);
+                              // for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
+                              //   const tokenId = readContracts.Totality.tokenOfOwnerByIndex(address, tokenIndex);
+                              //   console.warn("tokenId ", tokenId);
+                              // }
+                              successfulMint(address, decrypted.tokenQuantity).then(res => {
+                                setWhitelistMessage(
+                                  <div style={{ color: "green" }}>
+                                    Successfully minted {decrypted.tokenQuantity} tokens!
+                                  </div>
+                                );
+                              });
+                            }
+                          });
+                      }
+                      else if (res.result === "pending") {
+                        setWhitelistMessage(
+                          <div>
+                            Please wait while we proccess your mint!
+                          </div>
+                        );
+                      }
+                      else if (res.result === "Mint exceed limit") {
+                        setIsLoading(false);
+                        setWhitelistMessage(
+                          <div style={{ color: "red" }}>
+                            You have exceed the presale mint limit of 2
+                          </div>
+                        );
+                      }
+                      else {
+                        setIsLoading(false);
+                        setWhitelistMessage(
+                          <div style={{ color: "red" }}>
+                            Sorry! You are Not whitelisted!
+                          </div>
+                        );
+                      }
+                    });
+                  }
+                  getValidateWhitelist();
+                }
+              }
+            }}
+          >
+         {spinnerDiplay}
+          </Button>
+          {whitelistMessage}
+        </div>
+      </div>
+    )
   }
   return (
     <div className="App">
@@ -428,15 +633,9 @@ function App(props) {
                         <Image className="scalable-image" src={require('./marketing6.gif')} />
                       </Col>
                     </Row>
-                  </Col>
-                </Row>
-                <Row justify="center">
-                  <Col span={9} xl={9}>
-                  </Col>
-                  <Col span={10} xl={9.5}>
-                    <h2>
-                      Minting Coming Soon...
-                    </h2>
+                    <div style={{ textAlign: "-webkit-right" }}>
+                      {mintDisplay}
+                    </div>
                   </Col>
                 </Row>
               </div>
@@ -480,7 +679,7 @@ function App(props) {
                       Totality would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or
                       generative art using AI models. Which would eventually contribute into building a metaverse. <br></br><br></br>
 
-                      Tell us an artist to collaborate with on <a href="">Discord</a>
+                      Tell us an artist to collaborate with on <a href="https://discord.gg/U6QFZsJJc4">Discord</a>
                     </p>
                   </Col>
                 </Row>
@@ -555,7 +754,7 @@ function App(props) {
                       <Col span={19} style={{ alignSelf: "end" }}>
                         <p style={{ marginBottom: "3rem" }}>
                           Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
-                          Tell us an artist to collaborate with on <a href="">Discord</a>
+                          Tell us an artist to collaborate with on <a href="https://discord.gg/U6QFZsJJc4">Discord</a>
                         </p>
                       </Col>
                     </Row>
@@ -565,7 +764,7 @@ function App(props) {
             </div>
           </Route>
 
-          <Route path="/debugcontracts">
+          {/* <Route path="/debugcontracts">
             <Contract
               name="Totality"
               signer={userSigner}
@@ -573,116 +772,25 @@ function App(props) {
               address={address}
               blockExplorer={blockExplorer}
             />
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
 
       {/* <ThemeSwitch /> */}
 
       {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-      <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
+      <div style={{ position: "absolute", textAlign: "right", right: 0, top: 0, padding: 10 }}>
         <Account
           address={address}
-          localProvider={localProvider}
-          userSigner={userSigner}
+          // localProvider={localProvider}
+          // userSigner={userSigner}
           mainnetProvider={mainnetProvider}
-          price={price}
+          // price={price}
           web3Modal={web3Modal}
           loadWeb3Modal={loadWeb3Modal}
           logoutOfWeb3Modal={logoutOfWeb3Modal}
           blockExplorer={blockExplorer}
         />
-        <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
-          <div style={{ padding: 32 }}>
-            <ReCAPTCHA
-              sitekey="6LeK4QMdAAAAANekL14gqheznwSRx7MJ-U_n0TLy"
-              onChange={onChange}
-            />
-            <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} size="small" onChange={event => {
-              setTokenQuantity(event.target.value)}
-            } />
-            <Button disabled={!isVerified}
-              onClick={() => {
-                if(tokenQuantity === 0){
-                  setWhitelistMessage(
-                    <div style={{ color: "red" }}>
-                      Quantity is 0
-                    </div>
-                  );
-                  return;
-                }
-
-                if (!address) {
-                  loadWeb3Modal();
-                } else {
-                  const getValidateWhitelist = async () => {
-                    await validateWhitelist(address, tokenQuantity).then(res => {
-                      if (res.result === "Whitelisted") {
-                        console.warn("MINTING!");
-                        const etherPrice = (tokenQuantity * 0.07).toString();
-                        console.warn("tokenQuantity ! ", tokenQuantity);
-                        console.warn("etherPrice ! ", etherPrice);
-                        var bytes  = CryptoJS.AES.decrypt(res.ciphertext, process.env.REACT_APP_CRYPTO_SECRET_KEY);
-                        var decrypted =JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-
-                        tx(writeContracts.Totality.presaleBuy(decrypted.signature, decrypted.nonce, decrypted.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }), 
-                        update => {
-                          console.warn("📡 Transaction Update:", update);
-                          if (update && (update.status !== "confirmed" && update.status !== 1 && update.status !== "sent" && update.status !== "pending")) {
-                            console.warn("📡 TX FAILED");
-                            failMint(address)
-                          } else if (update.status === "confirmed" || update.status === 1){
-                            // const balance = useContractReader(readContracts, "Totality", "balanceOf", [address]);
-                            // const yourBalance = balance && balance.toNumber && balance.toNumber();
-                            // console.warn("yourBalance ", yourBalance);
-                            // for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
-                            //   const tokenId = readContracts.Totality.tokenOfOwnerByIndex(address, tokenIndex);
-                            //   console.warn("tokenId ", tokenId);
-                            // }
-                            successfulMint(address, decrypted.tokenQuantity).then( res => {
-                              setWhitelistMessage(
-                                <div style={{ color: "green" }}>
-                                  Successfully minted {decrypted.tokenQuantity} tokens!
-                                </div>
-                              );
-                            });
-                          }
-                        });
-                      } 
-                      else if( res.result === "pending" ) {
-                        setWhitelistMessage(
-                          <div>
-                            Please wait while we proccess your mint!
-                          </div>
-                        );
-                      }
-                      else if( res.result === "Mint exceed limit" ) {
-                        setWhitelistMessage(
-                          <div style={{ color: "red" }}>
-                            You have exceed the presale mint limit of 2
-                          </div>
-                        );
-                      }
-                      else {
-                        setWhitelistMessage(
-                          <div style={{ color: "red" }}>
-                            Sorry! You are Not whitelisted!
-                          </div>
-                        );
-                      }
-                    });
-                  }
-                  getValidateWhitelist();
-                  //now you can directly use jsonData
-                }
-              }}
-            >
-              Mint
-            </Button>
-            {whitelistMessage}
-            {networkDisplay}
-          </div>
-        </div>
       </div>
     </div>
   );
