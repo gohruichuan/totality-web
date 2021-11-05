@@ -27,9 +27,18 @@
   src: url(./ProximaNovaA-Regular.ttf);
 }
 
+.discordBtn{
+  cursor: pointer;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+
 p {
   font-family: ProximaNovaA-Regular;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 2px;
 }
 
@@ -70,6 +79,13 @@ html {
   margin-top: 10vh;
   /* background-position: -80%; */
 }
+
+.verticalAlignText{
+  margin-bottom: 3rem;
+  display: contents;
+  vertical-align: middle;
+}
+
 body{
   background-color: transparent !important;
 }

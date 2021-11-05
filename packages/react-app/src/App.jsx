@@ -10,6 +10,9 @@ import "./App.css";
 import { Account, Contract } from "./components";
 import { INFURA_ID, NETWORK, NETWORKS } from "./constants";
 import { Transactor } from "./helpers";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faDiscord } from '@fortawesome/free-brands-svg-icons';
+
 import {
   useBalance,
   useContractLoader,
@@ -33,7 +36,7 @@ const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend 
 const DEBUG = false;
 const NETWORKCHECK = true;
 const IS_PRESALE_BUY = false;
-const IS_LAUNCH_BUY = true
+const IS_LAUNCH_BUY = false;
 let PRICE = 0.07;
 // 🛰 providers
 if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
@@ -396,9 +399,9 @@ function App(props) {
   let mintDisplay = "";
   if (!IS_LAUNCH_BUY && !IS_PRESALE_BUY) {
     mintDisplay = (
-      <h2>
+      <h1 style={{  marginTop: 50 }}>
         Minting Coming Soon...
-      </h2>
+      </h1>
     )
   } else {
 
@@ -603,11 +606,20 @@ function App(props) {
                     </h2>
                     <p>
                       TOTALITY is a collection of 1,919 uniquely
-                      generative Solar Eclipses with 3,840,000,000
-                      combinations living in the blockchain <br></br> <br></br>
+                      generative Solar Eclipses with <u>3,840,000,000</u> combinations living in the blockchain <br></br> <br></br>
 
                       Each solar eclipse artwork is generated and
-                      animated using R programming
+                      animated using R programming <br></br> <br></br>
+                    </p>
+
+                    <h2 style={{ fontSize: "2vw" }}>
+                      Join our Umbraphile Community
+                    </h2>
+                    <p>
+                      Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
+                      <b>Get whitelisted for our presale now!</b>  <br></br><br></br>
+                      <Image className="discordBtn" preview={false} src={require('./discord.png')} />
+
                     </p>
                   </Col>
                   <Col span={9.5} lg={10}>
@@ -645,40 +657,54 @@ function App(props) {
                     <h2 style={{ fontSize: "5vw" }}>
                       FAQ
                     </h2>
-                    <h2>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    What is Generative Art?
+                    </h2>
+                    <p className="verticalAlignText">
+                      Generative Arts are designs generated, composed, or constructed through computer software algorithms, or similar mathematical, or mechanical autonomous processes. <br></br><br></br>
+                      The common forms of generative arts are graphics that visually represents complex processes, music, or language-based compositions like poetry. <br></br><br></br>
+                      Other applications include architectural design, models for understanding sciences such as evolution, and artificial intelligence systems.
+                    </p>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
                       What is Totality's design inspiration?
                     </h2>
-                    <p style={{ marginBottom: "3rem" }}>
+                    <p className="verticalAlignText">
                       On May 29, 1919, the solar eclipse affirmed the prediction of Einstein’s theory of general relativity,
                       ascribing gravity to a warp in the geometry of space-time, that gravity could bend light beams. <br></br><br></br>
 
                       Totality art designs consists of stars, solar eclipse, gravitational force, magnetic fields, and many more
                     </p>
 
-                    <h2>
-                      Is Totality a good investment?
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                      Is Totality a good investment? Listen up diamond hands!
                     </h2>
-                    <p style={{ marginBottom: "3rem" }}>
-                      Totality is totally about you. We believe in giving back our Eclipse holders redistributed to all Eclipse holders. <br></br><br></br>
+                    <p className="verticalAlignText">
+                      Totality is totally about you. We believe in giving back our Eclipse holders reflection rewards to all Eclipse holders. <br></br><br></br>
 
-                      The more Eclipses you hold, the more rewards will you earn for being a supporter of our community!
+                      The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community!
                     </p>
 
-                    <h2>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
                       Totality's utility
                     </h2>
-                    <p style={{ marginBottom: "3rem" }}>
+                    <p className="verticalAlignText">
                       Totality is not just an art project, it is a project that focuses on utility with technical
-                      advancements as the project grows.
+                      advancements as the project grows, enabling staking, and building of Metaverse. Trust me, I'm a software engineer 👨‍💻
                     </p>
 
-                    <h2>
-                      Totality x Aritsts
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                      Totality x Aritsts x Metaverse
                     </h2>
-                    <p style={{ marginBottom: "3rem" }}>
+                    <p className="verticalAlignText">
                       Totality would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or
-                      generative art using AI models. Which would eventually contribute into building a metaverse. <br></br><br></br>
+                      generative art using AI models. Which would eventually contribute into building our metaverse. <br></br><br></br>
 
+                      I am following very closely to Mark Zuckerburg's Metaverse plan 🌐  <br></br>
+                      Keeping you guys updated towards a bigger future via <a href="https://twitter.com/totalitybyrei">Twitter</a>! <br></br><br></br>
+
+                      Learn more about Metaverse <a href="https://about.facebook.com/meta">here</a> <br></br><br></br>
                       Tell us an artist to collaborate with on <a href="https://discord.gg/U6QFZsJJc4">Discord</a>
                     </p>
                   </Col>
@@ -695,8 +721,8 @@ function App(props) {
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-25.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3rem" }}>
-                          Redistribute 5% reflection rewards will be redistributed to all Eclipse holders
+                        <p className="verticalAlignText">
+                          Redistribute 5% reflection rewards to all Eclipse holders
                           <br></br><br></br>
                         </p>
                       </Col>
@@ -706,8 +732,8 @@ function App(props) {
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-50.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3rem" }}>
-                          Redistribute 10% reflection rewards will be redistributed to all Eclipse holders
+                        <p className="verticalAlignText">
+                          Redistribute 10% reflection rewards to all Eclipse holders
                           <br></br><br></br>
                           Chill out in Eclipse Chasers Lo-fi playlist
                         </p>
@@ -718,8 +744,8 @@ function App(props) {
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-75.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3rem" }}>
-                          Redistribute 15% reflection rewards will be redistributed to all Eclipse holders
+                        <p className="verticalAlignText">
+                          Redistribute 15% reflection rewards to all Eclipse holders
                         </p>
                       </Col>
                     </Row>
@@ -728,33 +754,16 @@ function App(props) {
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-100.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
-                        <p style={{ marginBottom: "3rem" }}>
+                        <p className="verticalAlignText">
                           Roadmap v2 preparation
                           <br></br><br></br>
-                          Treasury Fund to have 20 ETH for Gen 2 development
+                          Commit 20 ETH to treasury Fund for Gen 2 development
                           <br></br><br></br>
-                          Work with artists to collab Gen 2 Totality NFT
+                          Collaboraion with artists for Gen 2 Totality NFT
                           <br></br><br></br>
                           Gen 2 Totality NFT utility for Eclipse holders
                           <br></br><br></br>
                           5% of royalties will be redistributed as NFT giveaway
-                        </p>
-                      </Col>
-                    </Row>
-                  </Col>
-                </Row>
-              </div>
-              <div className="section">
-                <Row justify="center">
-                  <Col span={19}>
-                    <h2 style={{ fontSize: "5vw" }}>
-                      Join our Umbraphile Community
-                    </h2>
-                    <Row style={{ marginBottom: "3rem" }}>
-                      <Col span={19} style={{ alignSelf: "end" }}>
-                        <p style={{ marginBottom: "3rem" }}>
-                          Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
-                          Tell us an artist to collaborate with on <a href="https://discord.gg/U6QFZsJJc4">Discord</a>
                         </p>
                       </Col>
                     </Row>
