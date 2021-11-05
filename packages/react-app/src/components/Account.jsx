@@ -4,6 +4,8 @@ import { useThemeSwitcher } from "react-css-theme-switcher";
 import Address from "./Address";
 import Balance from "./Balance";
 import Wallet from "./Wallet";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 /*
   ~ What it does? ~
@@ -62,7 +64,7 @@ export default function Account({
         onClick={logoutOfWeb3Modal}
       >
         logout
-      </Button>,
+      </Button>
     );
   } else {
     modalButtons.push(
@@ -89,13 +91,17 @@ export default function Account({
       ) : (
         "No Wallet Available"
       )}
-      <Balance address={address} provider={localProvider} price={price} />
+      {/* <Balance address={address} provider={localProvider} price={price} /> */}
     </span>
   );
 
   return (
     <div>
-      {display}
+      <span>
+        <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter} size="3x" className="icon"/></a>
+        <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord} size="3x" className="icon"/></a>
+      </span>
+      {/* {display} */}
       {modalButtons}
     </div>
   );
