@@ -690,8 +690,9 @@ function App(props) {
                       Totality's utility
                     </h2>
                     <p className="verticalAlignText">
-                      Totality is not just an art project, it is a project that focuses on utility with technical
-                      advancements as the project grows, enabling staking, and building of Metaverse. Trust me, I'm a software engineer 👨‍💻
+                      Totality is not just an art project, it is a project that focuses on helping beginners to start their NFT journey!
+                      <br></br><br></br>
+                      And technical advancements as the project grows, such as staking, transmogrifications of Eclipse, building a Metaverse. You name it! Trust me, I'm a software engineer 👨‍💻
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
@@ -717,12 +718,25 @@ function App(props) {
                     </h2>
                     <Row style={{ marginBottom: "3rem" }}>
                       <Col span={4}>
+                        <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-0.svg')} />
+                      </Col>
+                      <Col span={18} style={{ alignSelf: "center" }}>
+                        <p className="verticalAlignText">
+                          Early members will be able to partake in varies activities to secure a spot in our whitelist pre-sale. <br></br><br></br>
+                          Whitelistees will be guaranteed a spot to mint Eclipse at a preferential discounted price of 0.05<span class="ether">Ξ</span>
+                          <br></br><br></br>
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginBottom: "3rem" }}>
+                      <Col span={4}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-25.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
-                          Redistribute 5% reflection rewards to all Eclipse holders
-                          <br></br><br></br>
+                          Redistribute 5% proceed from minting (a.k.a reflection rewards) to all Eclipse holders
+                          <br></br>
+                          Approx. 1.5<span class="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                         </p>
                       </Col>
                     </Row>
@@ -732,7 +746,8 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
-                          Redistribute 10% reflection rewards to all Eclipse holders
+                          Redistribute 10% reflection rewards to all Eclipse holders<br></br>
+                          Approx. 3.3<span class="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                           <br></br><br></br>
                           Chill out in Eclipse Chasers Lo-fi playlist
                         </p>
@@ -744,7 +759,8 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
-                          Redistribute 15% reflection rewards to all Eclipse holders
+                          Redistribute 15% reflection rewards to all Eclipse holders<br></br>
+                          Approx. 5<span class="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                         </p>
                       </Col>
                     </Row>
@@ -754,15 +770,11 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
-                          Roadmap v2 preparation
+                          20<span class="ether">Ξ</span> will be committed to treasury fund for Gen 2 development, where we will collaborate with other artist to leverage another dimension to generative art
                           <br></br><br></br>
-                          Commit 20 ETH to treasury Fund for Gen 2 development
+                          Gen 1 holder would be able to gain early access to upcoming Gen 2 drop
                           <br></br><br></br>
-                          Collaboraion with artists for Gen 2 Totality NFT
-                          <br></br><br></br>
-                          Gen 2 Totality NFT utility for Eclipse holders
-                          <br></br><br></br>
-                          5% of royalties will be redistributed as NFT giveaway
+                          5% of Gen 1 secondary sales will also be committed for NFT giveaway periodically exclusive to holder
                         </p>
                       </Col>
                     </Row>

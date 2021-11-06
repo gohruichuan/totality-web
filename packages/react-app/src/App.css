@@ -27,6 +27,10 @@
   src: url(./ProximaNovaA-Regular.ttf);
 }
 
+.ether{
+  font-family: nasalization-rg;
+}
+
 .discordBtn{
   cursor: pointer;
   display: block;
