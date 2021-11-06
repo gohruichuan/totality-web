@@ -723,7 +723,7 @@ function App(props) {
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
                           Early members will be able to partake in varies activities to secure a spot in our whitelist pre-sale. <br></br><br></br>
-                          Whitelistees will be guaranteed a spot to mint Eclipse at a preferential discounted price of 0.05<span class="ether">Ξ</span>
+                          Whitelistees will be guaranteed a spot to mint Eclipse at a preferential discounted price of 0.05<span className="ether">Ξ</span>
                           <br></br><br></br>
                         </p>
                       </Col>
@@ -736,7 +736,7 @@ function App(props) {
                         <p className="verticalAlignText">
                           Redistribute 5% proceed from minting (a.k.a reflection rewards) to all Eclipse holders
                           <br></br>
-                          Approx. 1.5<span class="ether">Ξ</span> reflection reward pool to be redistributed back to holders
+                          Approx. 1.5<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                         </p>
                       </Col>
                     </Row>
@@ -747,7 +747,7 @@ function App(props) {
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
                           Redistribute 10% reflection rewards to all Eclipse holders<br></br>
-                          Approx. 3.3<span class="ether">Ξ</span> reflection reward pool to be redistributed back to holders
+                          Approx. 3.3<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                           <br></br><br></br>
                           Chill out in Eclipse Chasers Lo-fi playlist
                         </p>
@@ -760,7 +760,7 @@ function App(props) {
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
                           Redistribute 15% reflection rewards to all Eclipse holders<br></br>
-                          Approx. 5<span class="ether">Ξ</span> reflection reward pool to be redistributed back to holders
+                          Approx. 5<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                         </p>
                       </Col>
                     </Row>
@@ -770,7 +770,7 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
-                          20<span class="ether">Ξ</span> will be committed to treasury fund for Gen 2 development, where we will collaborate with other artist to leverage another dimension to generative art
+                          20<span className="ether">Ξ</span> will be committed to treasury fund for Gen 2 development, where we will collaborate with other artist to leverage another dimension to generative art
                           <br></br><br></br>
                           Gen 1 holder would be able to gain early access to upcoming Gen 2 drop
                           <br></br><br></br>
