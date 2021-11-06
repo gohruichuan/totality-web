@@ -382,10 +382,10 @@ function App(props) {
   // let [isCaptchaVerified, setCaptchaVerified] = useState(false); // default tokenQuantity
 
 
-  !totalSupply && readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
+  IS_PRESALE_BUY && !totalSupply && readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
 
   function refreshTotalSupply(){
-    readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
+    IS_PRESALE_BUY && readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
   }
 
   function onChange(value) {
@@ -618,7 +618,7 @@ function App(props) {
                     <p>
                       Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
                       <b>Get whitelisted for our presale now!</b>  <br></br><br></br>
-                      <Image className="discordBtn" href="https://discord.gg/U6QFZsJJc4" preview={false} src={require('./discord.png')} />
+                      <a href="https://discord.gg/U6QFZsJJc4"><Image className="discordBtn"  preview={false} src={require('./discord.png')} /></a>
 
                     </p>
                   </Col>

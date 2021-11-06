@@ -102,7 +102,7 @@ export default function Account({
         <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord} size="3x" className="icon"/></a>
       </span>
       {/* {display} */}
-      {modalButtons}
+      {/* {modalButtons} */}
     </div>
   );
 }
