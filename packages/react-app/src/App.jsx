@@ -442,7 +442,7 @@ function App(props) {
                 );
                 return;
               }
-              if (!address) {
+              if (!address && (IS_PRESALE_BUY || IS_LAUNCH_BUY)) {
                 loadWeb3Modal();
               } else {
                 if (!IS_PRESALE_BUY && IS_LAUNCH_BUY) { // Launch
