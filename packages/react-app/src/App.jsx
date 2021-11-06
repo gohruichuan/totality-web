@@ -701,10 +701,9 @@ function App(props) {
                       Totality would love to collaborate with other digital artists to enhance our NFT art be it hand-drawn or
                       generative art using AI models. Which would eventually contribute into building our metaverse. <br></br><br></br>
 
-                      I am following very closely to Mark Zuckerburg's Metaverse plan 🌐  <br></br>
+                      I am following very closely to <a href="https://about.facebook.com/meta">Mark Zuckerberg's Metaverse</a> plan 🌐  <br></br>
                       Keeping you guys updated towards a bigger future via <a href="https://twitter.com/totalitybyrei">Twitter</a>! <br></br><br></br>
 
-                      Learn more about Metaverse <a href="https://about.facebook.com/meta">here</a> <br></br><br></br>
                       Tell us an artist to collaborate with on <a href="https://discord.gg/U6QFZsJJc4">Discord</a>
                     </p>
                   </Col>
