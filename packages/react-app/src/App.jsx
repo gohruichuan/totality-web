@@ -618,7 +618,7 @@ function App(props) {
                     <p>
                       Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
                       <b>Get whitelisted for our presale now!</b>  <br></br><br></br>
-                      <Image className="discordBtn" preview={false} src={require('./discord.png')} />
+                      <Image className="discordBtn" href="https://discord.gg/U6QFZsJJc4" preview={false} src={require('./discord.png')} />
 
                     </p>
                   </Col>
