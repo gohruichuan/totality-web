@@ -707,6 +707,77 @@ function App(props) {
                 <Row justify="center">
                   <Col span={19}>
                     <h2 style={{ fontSize: "5rem" }}>
+                      Design Animation
+                    </h2>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
+                      Polarity Reversals
+                    </h2>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./rotate-left.gif')} />
+                      <Image className="solar-example" src={require('./rotate-right.gif')} />
+                    </Row>
+                    <p>Totality's Eclipse animation is inspired by the polarity reversals that occurs on our Earth, Jupiter, and 
+                      Saturn, where magnetic fields can become unstable and the polarity would be reversed changing the
+                      planet's life and climate. <br></br><br></br>
+                      
+                      Totality's Eclipses rotational direction is determined by the polarity of the x and y axis, where the
+                      polarities competes itself of which would be dominant. The dominant polarity decides the rotational
+                      direction of each Totality's Eclipse artwork
+                    </p>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
+                      Magnetic Storms
+                    </h2>
+                    <p>Inspired by the magnetic storms which is caused by a strong surge of solar wind which disturbs the outer
+                      part of the Earth's magnetic field causing a complex oscillation, generating electric currents and magnetic
+                      field variations.</p>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./surge.png')} />
+                    </Row>
+                    <p style={{ marginTop: "3rem" }}>
+                      Totality's animation integrated such surge using scaling function in ggplot2, where the surge causes the left plots to be compact as compared to the right plots 
+                    </p>
+                  </Col>
+                  <Col span={19}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
+                    Example of Totality Art
+                    </h2>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./totality-example-204.gif')} />
+                    </Row>
+                    <p>The example can be visualized as an Eclipse with a tinge of Chaos, which can be imagined as Solar 
+                      Prominences of the Sun emerging dense clouds of incandescent ionized gas to protect from the Sun's 
+                      chromosphere into the corona. 
+                      <br></br><br></br>
+                      The curvature trajectories that converges into the spherical structure can be seen as magnetic fields 
+                      manifesting in the void of our overall universe.
+                    </p>
+                    <br></br><br></br>
+                    <p>Created by the following algorithm:</p> 
+                    <Row style={{ marginTop: "3rem" }}>
+                    <Col xs={{ span: 10, offset: 0 }} lg={{ span: 10, offset: 2 }}>
+                      <p><i>p</i> - Polarity of closed trajectory spirals into infinity or negative infinity</p>
+                      <p><i>x</i> - Horizontal Variation</p>
+                      <p><i>y</i> - Vertical Variation</p>
+                      <p><i>d</i> - Density of the convergence/divergence of trajectory spirals</p>
+                      <p><i>cv</i> - Chaos Variation</p>
+                      <p><i>ca</i> - Chaos Amplifier</p>
+                      <p><i>trigo</i> - Trigonometric Identities</p>
+                    </Col>
+                    <Col xs={{ span: 10, offset: 4 }} lg={{ span: 10, offset: 2 }}>
+                      <p><b>Where</b></p>
+                      <p>x axis = <i>p * x^d - trigo(y^cv) * ca</i></p> 
+                      <p>y axis = <i>p * y^d - trigo(x^cv) * ca</i></p><br></br>
+                      <p><b>Note: Not all Totality art are using same algorithm</b></p>
+                    </Col>
+                  </Row>
+                  </Col>
+                </Row>
+              </div>
+              <div className="section">
+                <Row justify="center">
+                  <Col span={19}>
+                    <h2 style={{ fontSize: "5rem" }}>
                       Technical Description
                     </h2>
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
