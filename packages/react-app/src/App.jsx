@@ -606,12 +606,11 @@ function App(props) {
                       Umbraphile Universe
                     </h2>
                     <p>
-                      TOTALITY is a collection of 1,919 uniquely
-                      generative Solar Eclipses with <u>3,840,000,000</u> combinations living in the blockchain <br></br> <br></br>
+                      TOTALITY is an active, generative NFT project with a collection of 1,919 uniquely generative art composed of 18 distinct chaotic systems that each develop their own characteristics of
+                      <u>3,840,000,000</u> combinations <br></br><br></br>
 
-                      Each solar eclipse artwork is generated and
-                      animated using R programming <br></br> <br></br>
-                    </p>
+                      TOTALITY's artwork synthesizes methodical art using trigonometry cipher written on R-programming typically used in statistical computing
+                    </p> <br></br><br></br>
 
                     <h2 style={{ fontSize: "2vw" }}>
                       Join our Umbraphile Community
