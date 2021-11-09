@@ -71,7 +71,7 @@ h4{
 }
 
 html { 
-  background: url(hero.svg) no-repeat fixed;
+  background: url(hero.svg) no-repeat;
   background-size: cover;
   width: 100%; 
   /* background-size: 50vw; */
@@ -130,6 +130,15 @@ body{
   height: auto;
   max-width: 250px;
   max-height: 250px;
+  /* margin: 20px auto; */
+}
+
+.solar-example{
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 500px;
+  max-height: 500px;
   /* margin: 20px auto; */
 }
 

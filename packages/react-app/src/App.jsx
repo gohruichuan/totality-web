@@ -11,6 +11,7 @@ import { Account, Contract } from "./components";
 import { INFURA_ID, NETWORK, NETWORKS } from "./constants";
 import { Transactor } from "./helpers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 import {
@@ -648,6 +649,137 @@ function App(props) {
                     <div style={{ textAlign: "-webkit-right" }}>
                       {mintDisplay}
                     </div>
+                  </Col>
+                </Row>
+              </div>
+              <div className="section">
+                <Row justify="center">
+                  <Col span={19}>
+                    <h2 style={{ fontSize: "5vw" }}>
+                      Design Inspiration
+                    </h2>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    Limit Cycles Oscillations
+                    </h2>
+                    <p className="verticalAlignText">
+                    Inspired by Limit Cycles Oscillations in Dynamical Systems, Totality's artwork is generatively drawn on a
+                    two-dimensional phase space in a closed trajectory having it's trajectory spirals into either infinity or
+                    negative infinity. <br></br><br></br>
+
+                    Similarly to Limit Cycles, Totality's artwork consists of stable, unstable, and semi-stable limit cycles 
+                    oscillations with a spherical structure emerged from its chaotic systems, considering a dynamic system 
+                    with a chaotic system is locally unstable yet globally stable with its trajectory spirals diverge/converge
+                    with another but never deviate from its spherical structure.
+                    </p>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    Solar Eclipse
+                    </h2>
+                    <p className="verticalAlignText">
+                    Totality art designs consists of stars, solar eclipse, gravitational force, and magnetic fields and many more.
+                    <br></br><br></br>
+                    Below are a <b>few</b> examples of Totality's artwork
+                    </p>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    Solar Prominence
+                    </h2>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./solar-prominence.gif')} />
+                    </Row>
+                    <p className="verticalAlignText">
+                    A Solar Prominence, is referred to a filament when viewed against the solar disk, is a large, bright, gaseous, feature extending outward from the Sun's surface, often in a loop shape. Prominence are anchored to the Sun's surface in the photosphere, and extend outwards into the Solar Corona.
+                    </p>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    Bailey's Beads
+                    </h2>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./bailey-beads.gif')} />
+                    </Row>
+                    <p className="verticalAlignText">
+                    The Baily's beads effect or diamond ring effect is a feature of total and annular solar eclipses. As the Moon covers the Sun during a solar eclipse, the rugged topography of the lunar limb allows beads of sunlight to shine through in some places while not in others.
+                    </p>
+                  </Col>
+                </Row>
+              </div>
+              <div className="section">
+                <Row justify="center">
+                  <Col span={19}>
+                    <h2 style={{ fontSize: "5vw" }}>
+                      Technical Description
+                    </h2>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    Solar Eclipse
+                    </h2>
+                    <p className="verticalAlignText">
+                    Totality art designs consists of stars, solar eclipse, gravitational force, and magnetic fields and many more.
+                    <br></br><br></br>
+                    Below are a <b>few</b> examples of Totality's artwork
+                    </p>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    Solar Prominence
+                    </h2>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./limit-cycle.png')} />
+                    </Row>
+                    <Row style={{ marginTop: "3rem" }}>
+                    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+                      <p><b>Where</b></p>
+                      <p>min x = -5, max x = 5</p>
+                      <p>min y = -5, max y =5</p>
+                    </Col>
+                    <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+                      <br></br><br></br>
+                      <p>x'=x-y-x^3-x*y^2</p>
+                      <p>y'=x+y-x^2*y-y^3</p>
+                    </Col>
+                    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+                      <br></br><br></br>
+                      <a className="icon" href="https://aeb019.hosted.uark.edu/pplane.html"><p>Try it <FontAwesomeIcon icon={faExternalLinkAlt}/></p></a>
+                    </Col>
+                  </Row>
+                  </Col>
+                </Row>
+              </div>
+              <div className="section">
+                <Row justify="center">
+                  <Col span={19}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    Example of Totality Art
+                    </h2>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./totality-example-204.gif')} />
+                    </Row>
+                    <p>The example can be visualized as an Eclipse with a tinge of Chaos, which can be imagined as Solar 
+                      Prominences of the Sun emerging dense clouds of incandescent ionized gas to protect from the Sun's 
+                      chromosphere into the corona. 
+                      <br></br><br></br>
+                      The curvature trajectories that converges into the spherical structure can be seen as magnetic fields 
+                      manifesting in the void of our overall universe.
+                    </p>
+                    <br></br><br></br>
+                    <p>Created by the following algorithm:</p> 
+                    <Row style={{ marginTop: "3rem" }}>
+                    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 10, offset: 2 }}>
+                      <p><i>p</i> - Polarity of closed trajectory spirals into infinity or negative infinity</p>
+                      <p><i>x</i> - Horizontal Variation</p>
+                      <p><i>y</i> - Vertical Variation</p>
+                      <p><i>d</i> - Density of the convergence/divergence of trajectory spirals</p>
+                      <p><i>cv</i> - Chaos Variation</p>
+                      <p><i>ca</i> - Chaos Amplifier</p>
+                      <p><i>trigo</i> - Trigonometric Identities</p>
+                    </Col>
+                    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 10, offset: 2 }}>
+                      <p><b>Where</b></p>
+                      <p>x axis = <i>p * x^d - trigo(y^cv) * ca</i></p> 
+                      <p>y axis = <i>p * y^d - trigo(x^cv) * ca</i></p><br></br>
+                      <p><b>Note: Not all Totality art are using same algorithm</b></p>
+                    </Col>
+                  </Row>
                   </Col>
                 </Row>
               </div>
