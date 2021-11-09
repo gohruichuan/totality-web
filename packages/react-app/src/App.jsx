@@ -709,18 +709,8 @@ function App(props) {
                     <h2 style={{ fontSize: "5rem" }}>
                       Technical Description
                     </h2>
-
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    Solar Eclipse
-                    </h2>
-                    <p className="verticalAlignText">
-                    Totality art designs consists of stars, solar eclipse, gravitational force, and magnetic fields and many more.
-                    <br></br><br></br>
-                    Below are a <b>few</b> examples of Totality's artwork
-                    </p>
-
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    Solar Prominence
+                      Example of Limit Cycles in Non-Linear Systems
                     </h2>
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
                       <Image className="solar-example" src={require('./limit-cycle.png')} />
