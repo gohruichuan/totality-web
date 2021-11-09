@@ -602,17 +602,16 @@ function App(props) {
               <div className="section">
                 <Row justify="center">
                   <Col sm={20} lg={10} xl={9}>
-                    <h2 style={{ fontSize: "5vw" }}>
+                    <h2 style={{ fontSize: "5rem" }}>
                       Umbraphile Universe
                     </h2>
                     <p>
-                      TOTALITY is an active, generative NFT project with a collection of 1,919 uniquely generative art composed of 18 distinct chaotic systems that each develop their own characteristics of
-                      <u>3,840,000,000</u> combinations <br></br><br></br>
+                      TOTALITY is an active, generative NFT project with a collection of 1,919 uniquely generative art composed of 18 distinct chaotic systems that each develop their own characteristics of <u>3,840,000,000</u> combinations <br></br><br></br>
 
                       TOTALITY's artwork synthesizes methodical art using trigonometry cipher written on R-programming typically used in statistical computing
                     </p> <br></br><br></br>
 
-                    <h2 style={{ fontSize: "2vw" }}>
+                    <h2 style={{ fontSize: "2rem" }}>
                       Join our Umbraphile Community
                     </h2>
                     <p>
@@ -654,11 +653,11 @@ function App(props) {
               <div className="section">
                 <Row justify="center">
                   <Col span={19}>
-                    <h2 style={{ fontSize: "5vw" }}>
+                    <h2 style={{ fontSize: "5rem" }}>
                       Design Inspiration
                     </h2>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     Limit Cycles Oscillations
                     </h2>
                     <p className="verticalAlignText">
@@ -672,7 +671,7 @@ function App(props) {
                     with another but never deviate from its spherical structure.
                     </p>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     Solar Eclipse
                     </h2>
                     <p className="verticalAlignText">
@@ -681,17 +680,18 @@ function App(props) {
                     Below are a <b>few</b> examples of Totality's artwork
                     </p>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     Solar Prominence
                     </h2>
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
                       <Image className="solar-example" src={require('./solar-prominence.gif')} />
                     </Row>
                     <p className="verticalAlignText">
-                    A Solar Prominence, is referred to a filament when viewed against the solar disk, is a large, bright, gaseous, feature extending outward from the Sun's surface, often in a loop shape. Prominence are anchored to the Sun's surface in the photosphere, and extend outwards into the Solar Corona.
+                    A Solar Prominence, is referred to a filament when viewed against the solar disk, is a large, bright, gaseous, feature extending outward from the Sun's surface, often in a loop shape. <br></br><br></br>
+                    Prominence are anchored to the Sun's surface in the photosphere, and extend outwards into the Solar Corona.
                     </p>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     Bailey's Beads
                     </h2>
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
@@ -706,11 +706,11 @@ function App(props) {
               <div className="section">
                 <Row justify="center">
                   <Col span={19}>
-                    <h2 style={{ fontSize: "5vw" }}>
+                    <h2 style={{ fontSize: "5rem" }}>
                       Technical Description
                     </h2>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     Solar Eclipse
                     </h2>
                     <p className="verticalAlignText">
@@ -719,7 +719,7 @@ function App(props) {
                     Below are a <b>few</b> examples of Totality's artwork
                     </p>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     Solar Prominence
                     </h2>
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
@@ -747,7 +747,7 @@ function App(props) {
               <div className="section">
                 <Row justify="center">
                   <Col span={19}>
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     Example of Totality Art
                     </h2>
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
@@ -763,7 +763,7 @@ function App(props) {
                     <br></br><br></br>
                     <p>Created by the following algorithm:</p> 
                     <Row style={{ marginTop: "3rem" }}>
-                    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 10, offset: 2 }}>
+                    <Col xs={{ span: 10, offset: 0 }} lg={{ span: 10, offset: 2 }}>
                       <p><i>p</i> - Polarity of closed trajectory spirals into infinity or negative infinity</p>
                       <p><i>x</i> - Horizontal Variation</p>
                       <p><i>y</i> - Vertical Variation</p>
@@ -772,7 +772,7 @@ function App(props) {
                       <p><i>ca</i> - Chaos Amplifier</p>
                       <p><i>trigo</i> - Trigonometric Identities</p>
                     </Col>
-                    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 10, offset: 2 }}>
+                    <Col xs={{ span: 10, offset: 4 }} lg={{ span: 10, offset: 2 }}>
                       <p><b>Where</b></p>
                       <p>x axis = <i>p * x^d - trigo(y^cv) * ca</i></p> 
                       <p>y axis = <i>p * y^d - trigo(x^cv) * ca</i></p><br></br>
@@ -785,11 +785,11 @@ function App(props) {
               <div className="section">
                 <Row justify="center">
                   <Col span={19}>
-                    <h2 style={{ fontSize: "5vw" }}>
+                    <h2 style={{ fontSize: "5rem" }}>
                       FAQ
                     </h2>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     What is Generative Art?
                     </h2>
                     <p className="verticalAlignText">
@@ -798,7 +798,7 @@ function App(props) {
                       Other applications include architectural design, models for understanding sciences such as evolution, and artificial intelligence systems.
                     </p>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       What is Totality's design inspiration?
                     </h2>
                     <p className="verticalAlignText">
@@ -808,7 +808,7 @@ function App(props) {
                       Totality art designs consists of stars, solar eclipse, gravitational force, magnetic fields, and many more
                     </p>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Is Totality a good investment? Listen up diamond hands!
                     </h2>
                     <p className="verticalAlignText">
@@ -817,7 +817,7 @@ function App(props) {
                       The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community!
                     </p>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Totality's utility
                     </h2>
                     <p className="verticalAlignText">
@@ -826,7 +826,7 @@ function App(props) {
                       And technical advancements as the project grows, such as staking, transmogrifications of Eclipse, building a Metaverse. You name it! Trust me, I'm a software engineer 👨‍💻
                     </p>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Totality x Aritsts x Metaverse
                     </h2>
                     <p className="verticalAlignText">
@@ -844,7 +844,7 @@ function App(props) {
               <div className="section">
                 <Row justify="center">
                   <Col span={19}>
-                    <h2 style={{ fontSize: "5vw" }}>
+                    <h2 style={{ fontSize: "5rem" }}>
                       Roadmap v1
                     </h2>
                     <Row style={{ marginBottom: "3rem" }}>
