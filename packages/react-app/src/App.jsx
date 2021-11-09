@@ -742,10 +742,6 @@ function App(props) {
                     </Col>
                   </Row>
                   </Col>
-                </Row>
-              </div>
-              <div className="section">
-                <Row justify="center">
                   <Col span={19}>
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                     Example of Totality Art
@@ -782,6 +778,7 @@ function App(props) {
                   </Col>
                 </Row>
               </div>
+          
               <div className="section">
                 <Row justify="center">
                   <Col span={19}>
@@ -848,7 +845,7 @@ function App(props) {
                       Roadmap v1
                     </h2>
                     <Row style={{ marginBottom: "3rem" }}>
-                      <Col span={4}>
+                      <Col span={4} style={{ marginRight: "1rem" }}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-0.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
@@ -860,7 +857,7 @@ function App(props) {
                       </Col>
                     </Row>
                     <Row style={{ marginBottom: "3rem" }}>
-                      <Col span={4}>
+                      <Col span={4} style={{ marginRight: "1rem" }}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-25.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
@@ -872,7 +869,7 @@ function App(props) {
                       </Col>
                     </Row>
                     <Row style={{ marginBottom: "3rem" }}>
-                      <Col span={4}>
+                      <Col span={4} style={{ marginRight: "1rem" }}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-50.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
@@ -885,7 +882,7 @@ function App(props) {
                       </Col>
                     </Row>
                     <Row style={{ marginBottom: "3rem" }}>
-                      <Col span={4}>
+                      <Col span={4} style={{ marginRight: "1rem" }}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-75.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
@@ -896,7 +893,7 @@ function App(props) {
                       </Col>
                     </Row>
                     <Row style={{ marginBottom: "3rem" }}>
-                      <Col span={4}>
+                      <Col span={4} style={{ marginRight: "1rem" }}>
                         <Image className="scalable-roadmap-image" preview={false} src={require('./roadmap-100.svg')} />
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
