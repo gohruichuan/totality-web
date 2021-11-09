@@ -716,17 +716,17 @@ function App(props) {
                       <Image className="solar-example" src={require('./limit-cycle.png')} />
                     </Row>
                     <Row style={{ marginTop: "3rem" }}>
-                    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+                    <Col xs={{ span: 5, offset: 0 }} lg={{ span: 6, offset: 2 }}>
                       <p><b>Where</b></p>
                       <p>min x = -5, max x = 5</p>
                       <p>min y = -5, max y =5</p>
                     </Col>
-                    <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+                    <Col xs={{ span: 11, offset: 3 }} lg={{ span: 6, offset: 2 }}>
                       <br></br><br></br>
                       <p>x'=x-y-x^3-x*y^2</p>
                       <p>y'=x+y-x^2*y-y^3</p>
                     </Col>
-                    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+                    <Col xs={{ span: 5, offset: 0 }} lg={{ span: 6, offset: 2 }}>
                       <br></br><br></br>
                       <a className="icon" href="https://aeb019.hosted.uark.edu/pplane.html"><p>Try it <FontAwesomeIcon icon={faExternalLinkAlt}/></p></a>
                     </Col>
