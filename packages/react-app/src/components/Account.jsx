@@ -96,13 +96,11 @@ export default function Account({
   );
 
   return (
-    <div>
-      <span>
-        <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter} size="3x" className="icon"/></a>
-        <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord} size="3x" className="icon"/></a>
+      <span style={{float: "right"}}>
+        <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter}  className="icon"/></a>
+        <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord}  className="icon"/></a>
+        {/* {display} */}
+        {modalButtons}
       </span>
-      {/* {display} */}
-      {/* {modalButtons} */}
-    </div>
   );
 }

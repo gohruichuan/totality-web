@@ -402,6 +402,7 @@ function App(props) {
     mintDisplay = (
       <h1 style={{  marginTop: 50 }}>
         Minting Coming Soon...
+        <a href="https://discord.gg/U6QFZsJJc4"><b><p>Get whitelisted for our presale <FontAwesomeIcon icon={faExternalLinkAlt}/></p></b></a>  
       </h1>
     )
   } else {
@@ -591,13 +592,13 @@ function App(props) {
                     </Col>
                   </Row>
                 </Row>
-                <Row type="flex" align="middle" style={{ alignItems: 'center', marginTop: "-15vh" }}>
+                {/* <Row type="flex" align="middle" style={{ alignItems: 'center', marginTop: "-15vh" }}>
                   <Col span={11}>
                   </Col>
                   <Col span={12}>
                     <img src={require('./scroll.svg')} />
                   </Col>
-                </Row>
+                </Row> */}
               </div>
               <div className="section">
                 <Row justify="center">
@@ -610,16 +611,9 @@ function App(props) {
 
                       TOTALITY's artwork synthesizes methodical art using trigonometry cipher written on R-programming typically used in statistical computing
                     </p> <br></br><br></br>
-
-                    <h2 style={{ fontSize: "2rem" }}>
-                      Join our Umbraphile Community
-                    </h2>
-                    <p>
-                      Join our <b>#UMBRAPHILE</b> community to get the latest news and follow our latest announcements. <br></br><br></br>
-                      <b>Get whitelisted for our presale now!</b>  <br></br><br></br>
-                      <a href="https://discord.gg/U6QFZsJJc4"><Image className="discordBtn"  preview={false} src={require('./discord.png')} /></a>
-
-                    </p>
+                    <p><b>#UMBRAPHILE</b></p>
+                    <p><i>noun</i></p>
+                    <p><i>The term, describes one who loves eclipses, often travelling to see them.</i></p>
                   </Col>
                   <Col span={9.5} lg={10}>
                     <Row gutter={[16, 16]} style={{ marginBottom: "1rem" }}>
@@ -706,71 +700,6 @@ function App(props) {
               <div className="section">
                 <Row justify="center">
                   <Col span={19}>
-                    <h2 style={{ fontSize: "5rem" }}>
-                      Design Animation
-                    </h2>
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                      Polarity Reversals
-                    </h2>
-                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
-                      <Image className="solar-example" src={require('./rotate-left.gif')} />
-                      <Image className="solar-example" src={require('./rotate-right.gif')} />
-                    </Row>
-                    <p>Totality's Eclipse animation is inspired by the polarity reversals that occurs on our Earth, Jupiter, and 
-                      Saturn, where magnetic fields can become unstable and the polarity would be reversed changing the
-                      planet's life and climate. <br></br><br></br>
-                      
-                      Totality's Eclipses rotational direction is determined by the polarity of the x and y axis, where the
-                      polarities competes itself of which would be dominant. The dominant polarity decides the rotational
-                      direction of each Totality's Eclipse artwork
-                    </p>
-
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                      Magnetic Storms
-                    </h2>
-                    <p>Inspired by the magnetic storms which is caused by a strong surge of solar wind which disturbs the outer
-                      part of the Earth's magnetic field causing a complex oscillation, generating electric currents and magnetic
-                      field variations.</p>
-                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
-                      <Image className="solar-example" src={require('./surge.png')} />
-                    </Row>
-                    <p style={{ marginTop: "3rem" }}>
-                      Totality's animation integrated such surge using scaling function in ggplot2, where the surge causes the left plots to be compact as compared to the right plots 
-                    </p>
-                  </Col>
-                  <Col span={19}>
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    Example of Totality Art
-                    </h2>
-                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
-                      <Image className="solar-example" src={require('./totality-example-204.gif')} />
-                    </Row>
-                    <p>The example can be visualized as an Eclipse with a tinge of Chaos, which can be imagined as Solar 
-                      Prominences of the Sun emerging dense clouds of incandescent ionized gas to protect from the Sun's 
-                      chromosphere into the corona. 
-                      <br></br><br></br>
-                      The curvature trajectories that converges into the spherical structure can be seen as magnetic fields 
-                      manifesting in the void of our overall universe.
-                    </p>
-                    <br></br><br></br>
-                    <p>Created by the following algorithm:</p> 
-                    <Row style={{ marginTop: "3rem" }}>
-                    <Col xs={{ span: 10, offset: 0 }} lg={{ span: 10, offset: 2 }}>
-                      <p><i>p</i> - Polarity of closed trajectory spirals into infinity or negative infinity</p>
-                      <p><i>x</i> - Horizontal Variation</p>
-                      <p><i>y</i> - Vertical Variation</p>
-                      <p><i>d</i> - Density of the convergence/divergence of trajectory spirals</p>
-                      <p><i>cv</i> - Chaos Variation</p>
-                      <p><i>ca</i> - Chaos Amplifier</p>
-                      <p><i>trigo</i> - Trigonometric Identities</p>
-                    </Col>
-                    <Col xs={{ span: 10, offset: 4 }} lg={{ span: 10, offset: 2 }}>
-                      <p><b>Where</b></p>
-                      <p>x axis = <i>p * x^d - trigo(y^cv) * ca</i></p> 
-                      <p>y axis = <i>p * y^d - trigo(x^cv) * ca</i></p><br></br>
-                      <p><b>Note: Not all Totality art are using same algorithm</b></p>
-                    </Col>
-                  </Row>
                   </Col>
                 </Row>
               </div>
@@ -810,7 +739,7 @@ function App(props) {
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
                       <Image className="solar-example" src={require('./totality-example-204.gif')} />
                     </Row>
-                    <p>The example can be visualized as an Eclipse with a tinge of Chaos, which can be imagined as Solar 
+                    <p>The example is inspired by the <i>Limit Cycles</i>, which can be visualized as an Eclipse with a tinge of Chaos, which can be imagined as Solar 
                       Prominences of the Sun emerging dense clouds of incandescent ionized gas to protect from the Sun's 
                       chromosphere into the corona. 
                       <br></br><br></br>
@@ -835,7 +764,40 @@ function App(props) {
                       <p>y axis = <i>p * y^d - trigo(x^cv) * ca</i></p><br></br>
                       <p><b>Note: Not all Totality art are using same algorithm</b></p>
                     </Col>
-                  </Row>
+
+                    </Row>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "5rem" }}>
+                      Design Animations
+                    </h2>
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
+                      Active Rotation
+                    </h2>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./rotate-left.gif')} />
+                      <Image className="solar-example" src={require('./rotate-right.gif')} />
+                    </Row>
+                    <p>Totality's Eclipse animation is inspired by the polarity reversals that occurs on our Earth, Jupiter, and 
+                      Saturn, where magnetic fields can become unstable and the polarity would be reversed changing the
+                      planet's life and climate. <br></br><br></br>
+                      
+                      Totality's Eclipses rotational direction is determined by the polarity of the x and y axis, where the
+                      polarities competes itself of which would be dominant. The dominant polarity decides the rotational
+                      direction of each Totality's Eclipse artwork
+                    </p>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
+                      Magnetic Storms
+                    </h2>
+                    <p>Inspired by the magnetic storms which is caused by a strong surge of solar wind which disturbs the outer
+                      part of the Earth's magnetic field causing a complex oscillation, generating electric currents and magnetic
+                      field variations.</p>
+                    <Row type="flex" align="center" style={{ alignItems: 'center' }}>
+                      <Image className="solar-example" src={require('./surge.png')} />
+                    </Row>
+                    <p style={{ marginTop: "3rem" }}>
+                      Totality's artwork is infused with a active rotation that is created by integrating a scaling function in ggplot2. This randomly create a surge at either sides on the x-axis where the polarities competes itself of which side would be dominant; the dominant polarity would therefore decides the rotational direction. This surge can be understood as a polarity reversal, like in our milky way where planet's magnetic field can become unstable and their polarity would be reversed changing the climate 
+                    </p>
+
                   </Col>
                 </Row>
               </div>
@@ -870,20 +832,13 @@ function App(props) {
                       Is Totality a good investment? Listen up diamond hands!
                     </h2>
                     <p className="verticalAlignText">
-                      Totality is totally about you. We believe in giving back our Eclipse holders reflection rewards to all Eclipse holders. <br></br><br></br>
+                      Totality is totally about you. We believe in giving back our Eclipse holders reflection rewards to all Eclipse holders. <br></br>
 
-                      The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community!
-                    </p>
+                      The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community! <br></br><br></br>
 
-                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                      Totality's utility
-                    </h2>
-                    <p className="verticalAlignText">
-                      Totality is not just an art project, it is a project that focuses on helping beginners to start their NFT journey!
-                      <br></br><br></br>
+                      Totality is not just an art project, it is a project that focuses on helping beginners to start their NFT journey! <br></br>
                       And technical advancements as the project grows, such as staking, transmogrifications of Eclipse, building a Metaverse. You name it! Trust me, I'm a software engineer 👨‍💻
                     </p>
-
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Totality x Aritsts x Metaverse
                     </h2>
@@ -911,7 +866,7 @@ function App(props) {
                       </Col>
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
-                          Early members will be able to partake in varies activities to secure a spot in our whitelist pre-sale. <br></br><br></br>
+                          Early members will be able to partake in various activities to secure a spot in our whitelist pre-sale. <br></br><br></br>
                           Whitelistees will be guaranteed a spot to mint Eclipse at a preferential discounted price of 0.05<span className="ether">Ξ</span>
                           <br></br><br></br>
                         </p>
@@ -970,6 +925,35 @@ function App(props) {
                   </Col>
                 </Row>
               </div>
+
+              <div className="section">
+                <Row justify="center">
+                  <Col span={19}>
+                    <h2 style={{ fontSize: "5rem" }}>
+                      Join our Umbraphile Community
+                    </h2>
+                  
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
+                      Our Vision
+                    </h2>
+                    <p className="verticalAlignText">
+                    We aim to help in the development of off-chain capabilities with Web3 and other forms of generative arts,
+                    focusing on the NFT ecosystem. <br></br><br></br>
+
+                    We strive to deliver life changing artistry and technology development with our Umbraphile community to
+                    enrich creative process of generating art, Web3 developments, building of Metaverse.<br></br><br></br>
+
+                    See you in our curated universe 🪐 <br></br><br></br>
+                    </p>
+                    <span>
+                      <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter} size="3x" className="icon"/></a>
+                      <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord} size="3x" className="icon"/></a>
+                    </span>
+                    <br></br><br></br><br></br><br></br>
+                  </Col>
+                </Row>
+              </div>
             </div>
           </Route>
 
@@ -988,7 +972,8 @@ function App(props) {
       {/* <ThemeSwitch /> */}
 
       {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-      <div style={{ position: "absolute", textAlign: "right", right: 0, top: 0, padding: 10 }}>
+      <div style={{ position: "fixed", right: 0, top: 0, padding: "10px 0 0 0", backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100vw" }}>
+        <h1 style={{ marginLeft:20, textAlign: "left"}}>TOTALITY
         <Account
           address={address}
           // localProvider={localProvider}
@@ -1000,6 +985,8 @@ function App(props) {
           logoutOfWeb3Modal={logoutOfWeb3Modal}
           blockExplorer={blockExplorer}
         />
+        </h1>
+        
       </div>
     </div>
   );
