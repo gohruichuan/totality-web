@@ -977,7 +977,7 @@ function App(props) {
             </div>
           </Route>
 
-          <Route path="/debugcontracts">
+          {/* <Route path="/debugcontracts">
             <Contract
               name="Totality"
               signer={userSigner}
@@ -985,7 +985,7 @@ function App(props) {
               address={address}
               blockExplorer={blockExplorer}
             />
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
 
