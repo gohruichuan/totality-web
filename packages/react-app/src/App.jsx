@@ -819,7 +819,7 @@ function App(props) {
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                      What is Totality's design inspiration?
+                      What is Totality's 1,919 quantity inspiration?
                     </h2>
                     <p className="verticalAlignText">
                       On May 29, 1919, the solar eclipse affirmed the prediction of Einstein’s theory of general relativity,
@@ -829,15 +829,23 @@ function App(props) {
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                      Is Totality a good investment? Listen up diamond hands!
+                      Why should you hold Totality artwork?
                     </h2>
                     <p className="verticalAlignText">
-                      Totality is totally about you. We believe in giving back our Eclipse holders reflection rewards to all Eclipse holders. <br></br>
+                        <b>NFT Art</b> <br></br>
+                        - Uploading your PFP/Generative arts off-chain for reveal <br></br><br></br>
+                        <b>Technology</b> <br></br>
+                        - Front-End Development for your website <br></br>
+                        - Backend Development for revealing your Art after launch & security best practices <br></br>
+                        - Smart Contract Development <br></br>
+                        - Bonus: ⭐Off-chain whitelisting to reduce gas cost instead of whitelisting on-chain in Smart Contract <br></br><br></br>
+                        <b>Marketing</b> <br></br>
+                        - Learn how to get your Twitter and Discord up <br></br>
+                        - Learning how to tweet and commnicate effectively <br></br><br></br>
 
-                      The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community! <br></br><br></br>
-
-                      Totality is not just an art project, it is a project that focuses on helping beginners to start their NFT journey! <br></br>
-                      And technical advancements as the project grows, such as staking, transmogrifications of Eclipse, building a Metaverse. You name it! Trust me, I'm a software engineer 👨‍💻
+                        <b>Investment</b> <br></br>
+                        Totality is totally about you. We believe in giving back our Eclipse holders reflection rewards to all Eclipse holders. <br></br>
+                        The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community! <br></br><br></br>
                     </p>
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Totality x Aritsts x Metaverse
@@ -867,7 +875,7 @@ function App(props) {
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
                           Early members will be able to partake in various activities to secure a spot in our whitelist pre-sale. <br></br><br></br>
-                          Whitelistees will be guaranteed a spot to mint Eclipse at a preferential discounted price of 0.05<span className="ether">Ξ</span>
+                          Whitelistees will be guaranteed a spot to mint 2x Eclipse at a preferential discounted price of 0.0919<span className="ether">Ξ</span> each
                           <br></br><br></br>
                         </p>
                       </Col>
@@ -880,7 +888,7 @@ function App(props) {
                         <p className="verticalAlignText">
                           Redistribute 5% proceed from minting (a.k.a reflection rewards) to all Eclipse holders
                           <br></br>
-                          Approx. 1.5<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
+                          Approx. 3.5<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                         </p>
                       </Col>
                     </Row>
@@ -891,7 +899,7 @@ function App(props) {
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
                           Redistribute 10% reflection rewards to all Eclipse holders<br></br>
-                          Approx. 3.3<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
+                          Approx. 9<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                           <br></br><br></br>
                           Chill out in Eclipse Chasers Lo-fi playlist
                         </p>
@@ -904,7 +912,7 @@ function App(props) {
                       <Col span={18} style={{ alignSelf: "center" }}>
                         <p className="verticalAlignText">
                           Redistribute 15% reflection rewards to all Eclipse holders<br></br>
-                          Approx. 5<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
+                          Approx. 14<span className="ether">Ξ</span> reflection reward pool to be redistributed back to holders
                         </p>
                       </Col>
                     </Row>
@@ -921,6 +929,10 @@ function App(props) {
                           5% of Gen 1 secondary sales will also be committed for NFT giveaway periodically exclusive to holder
                         </p>
                       </Col>
+                      <br></br><br></br>
+                      <p className="verticalAlignText">
+                        More development to be unfold; so keep a look out for Roadmap 2.0
+                      </p>
                     </Row>
                   </Col>
                 </Row>
