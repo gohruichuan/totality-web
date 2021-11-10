@@ -832,9 +832,18 @@ function App(props) {
                       Why you should hold Totality artworks?
                     </h2>
                     <p className="verticalAlignText">
+                      <b>Your Benefits</b> <br></br><br></br>
+                        <b>Investments</b> <br></br>
+                        Totality is totally about you. We believe in giving back our Eclipse holders reflection rewards to all Eclipse holders. <br></br>
+                        The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community! <br></br><br></br>
+
+                        <b>Totality's Uniqueness</b> <br></br>
+                        Totality's artwork is <u>written and animated</u> in R programming language. Which sets us apart from previous generative art projects which commonly uses Javascript library p5js.
+                        <br></br><br></br><br></br><br></br>
+                      <b>The community and I will be sharing our knowledge of the following</b><br></br><br></br>
                         <b>NFT Art</b> <br></br>
-                        - Learning about generating NFT PFP/Generative art
-                        - Uploading your PFP/Generative arts off-chain for reveal <br></br><br></br>
+                        - Learning about generating NFT PFP/Generative art <br></br>
+                        - Uploading PFP/Generative arts off-chain for reveal <br></br><br></br>
                         <b>Technology</b> <br></br>
                         - Front-End Development for your website <br></br>
                         - Backend Development for revealing your NFT art after launch & security best practices <br></br>
@@ -843,10 +852,7 @@ function App(props) {
                         <b>Marketing</b> <br></br>
                         - Learn how to get your Twitter and Discord up <br></br>
                         - Learning how to tweet and commnicate effectively <br></br><br></br>
-
-                        <b>Investment</b> <br></br>
-                        Totality is totally about you. We believe in giving back our Eclipse holders reflection rewards to all Eclipse holders. <br></br>
-                        The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community! <br></br><br></br>
+                       
                     </p>
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Totality x Aritsts x Metaverse
