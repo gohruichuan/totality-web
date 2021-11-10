@@ -833,10 +833,11 @@ function App(props) {
                     </h2>
                     <p className="verticalAlignText">
                         <b>NFT Art</b> <br></br>
+                        - Learning about generating NFT PFP/Generative art
                         - Uploading your PFP/Generative arts off-chain for reveal <br></br><br></br>
                         <b>Technology</b> <br></br>
                         - Front-End Development for your website <br></br>
-                        - Backend Development for revealing your Art after launch & security best practices <br></br>
+                        - Backend Development for revealing your NFT art after launch & security best practices <br></br>
                         - Smart Contract Development <br></br>
                         - Bonus: ⭐Off-chain whitelisting to reduce gas cost instead of whitelisting on-chain in Smart Contract <br></br><br></br>
                         <b>Marketing</b> <br></br>
