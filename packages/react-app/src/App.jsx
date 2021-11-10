@@ -38,7 +38,7 @@ const DEBUG = false;
 const NETWORKCHECK = true;
 const IS_PRESALE_BUY = false;
 const IS_LAUNCH_BUY = false;
-let PRICE = 0.07;
+let PRICE = 0.1919;
 // 🛰 providers
 if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
 const scaffoldEthProvider = null && navigator.onLine ? new ethers.providers.StaticJsonRpcProvider("https://rpc.scaffoldeth.io:48544") : null;
@@ -156,7 +156,7 @@ function App(props) {
   // const totalSupplyBigNum = useContractReader(readContracts, "Totality", "totalSupply");
   // console.log("CALLED INFURA");
   // const totalSupply = totalSupplyBigNum && totalSupplyBigNum.toNumber();
-  
+
 
   // const contract = new web3.eth.Contract(contractInfo.ABI, contractInfo.contract_address);
 
@@ -185,7 +185,7 @@ function App(props) {
   //     // console.log("💵 yourLocalBalance", yourLocalBalance ? ethers.utils.formatEther(yourLocalBalance) : "...");
   //     // console.log("💵 yourMainnetBalance", yourMainnetBalance ? ethers.utils.formatEther(yourMainnetBalance) : "...");
   //     // console.log("📝 readContracts", readContracts);
-       
+
   //     // console.log("🌍 DAI contract on mainnet:", mainnetContracts);
   //     // console.log("💵 yourMainnetDAIBalance", myMainnetDAIBalance);
   //     // console.log("🔐 writeContracts", writeContracts);
@@ -204,7 +204,7 @@ function App(props) {
   // const totalSupply = new Promise((resolve, reject) => {
   //    readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => result.toNumber());
   // });
-  
+
   //  let totalSupply = readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(function(result) {
   //   return result && result.toNumber();
   //  });
@@ -366,11 +366,11 @@ function App(props) {
 
   let spinnerDiplay = "";
 
-  if(isLoading){
-  const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+  if (isLoading) {
+    const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
     spinnerDiplay = (
       <h4>
-      <Spin indicator={antIcon} /> Mint
+        <Spin indicator={antIcon} /> Mint
       </h4>
     )
   } else {
@@ -383,10 +383,10 @@ function App(props) {
   // let [isCaptchaVerified, setCaptchaVerified] = useState(false); // default tokenQuantity
 
 
-  IS_PRESALE_BUY && !totalSupply && readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
+  (IS_PRESALE_BUY || IS_LAUNCH_BUY) && !totalSupply && readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
 
-  function refreshTotalSupply(){
-    IS_PRESALE_BUY && readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
+  function refreshTotalSupply() {
+    (IS_PRESALE_BUY || IS_LAUNCH_BUY) && readContracts && readContracts.Totality && readContracts.Totality.totalSupply().then(result => setTotalSupply(result.toNumber()));
   }
 
   function onChange(value) {
@@ -400,19 +400,19 @@ function App(props) {
   let mintDisplay = "";
   if (!IS_LAUNCH_BUY && !IS_PRESALE_BUY) {
     mintDisplay = (
-      <h1 style={{  marginTop: 50 }}>
+      <h1 style={{ marginTop: 50 }}>
         Minting Coming Soon...
-        <a href="https://discord.gg/U6QFZsJJc4"><b><p>Get whitelisted for our presale <FontAwesomeIcon icon={faExternalLinkAlt}/></p></b></a>  
+        <a href="https://discord.gg/U6QFZsJJc4"><b><p>Get whitelisted for our presale <FontAwesomeIcon icon={faExternalLinkAlt} /></p></b></a>
       </h1>
     )
   } else {
 
-    if(IS_PRESALE_BUY){
-      PRICE = 0.05;
+    if (IS_PRESALE_BUY) {
+      PRICE = 0.0919;
     }
-   
+
     mintDisplay = (
-      
+
       <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ padding: 32 }}>
           <ReCAPTCHA
@@ -422,19 +422,19 @@ function App(props) {
           <br></br><br></br>
           <h2>
             <span style={{ marginRight: 88 }}>Price per Totality</span>
-            <span style={{float: "right"}}> {PRICE} ETH</span>
+            <span style={{ float: "right" }}> {PRICE} ETH</span>
           </h2>
           <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} style={{ width: "23rem", borderRadius: 10 }} onChange={event => {
             setTokenQuantity(event.target.value)
-          }} /> 
+          }} />
           <br></br><br></br>
           <h2>
             <span style={{ marginRight: 50 }}> {totalSupply} / 1919 Minted</span>
-            <span style={{float: "right"}}>Total {(tokenQuantity * PRICE).toFixed(2)} ETH</span>
+            <span style={{ float: "right" }}>Total {(tokenQuantity * PRICE).toFixed(4)} ETH</span>
           </h2>
 
           <br></br><br></br>
-          <Button disabled={!isCaptchaVerified} style={{borderRadius: 10, backgroundColor:"white" }} size="large"
+          <Button disabled={!isCaptchaVerified} style={{ borderRadius: 10, backgroundColor: "white" }} size="large"
             onClick={() => {
               if (tokenQuantity === 0) {
                 setWhitelistMessage(
@@ -459,11 +459,12 @@ function App(props) {
                       if (update.status === "confirmed" || update.status === 1) {
                         refreshTotalSupply();
                         setWhitelistMessage(
-                          <div style={{ color: "green" }}>
+                          <div style={{ color: "lightgreen" }}>
                             Successfully minted {tokenQuantity} tokens!
                           </div>
                         );
-                      } else {
+                      } else if (update && (update.status !== "confirmed" && update.status !== 1 && update.status !== "sent" && update.status !== "pending")) {
+                        console.warn("📡 TX FAILED");
                         setWhitelistMessage(
                           <div style={{ color: "red" }}>
                             Failed to mint {tokenQuantity} tokens!
@@ -504,7 +505,7 @@ function App(props) {
                               // }
                               successfulMint(address, decrypted.tokenQuantity).then(res => {
                                 setWhitelistMessage(
-                                  <div style={{ color: "green" }}>
+                                  <div style={{ color: "lightgreen" }}>
                                     Successfully minted {decrypted.tokenQuantity} tokens!
                                   </div>
                                 );
@@ -527,11 +528,19 @@ function App(props) {
                           </div>
                         );
                       }
-                      else {
+                      else if (res.result === "Not Whitelisted") {
                         setIsLoading(false);
                         setWhitelistMessage(
                           <div style={{ color: "red" }}>
                             Sorry! You are Not whitelisted!
+                          </div>
+                        );
+                      }
+                      else {
+                        setIsLoading(false);
+                        setWhitelistMessage(
+                          <div style={{ color: "red" }}>
+                            Failed to mint {tokenQuantity} tokens!
                           </div>
                         );
                       }
@@ -542,7 +551,7 @@ function App(props) {
               }
             }}
           >
-         {spinnerDiplay}
+            {spinnerDiplay}
           </Button>
           {whitelistMessage}
         </div>
@@ -652,46 +661,50 @@ function App(props) {
                     </h2>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    Limit Cycles Oscillations
+                      Limit Cycles Oscillations
                     </h2>
                     <p className="verticalAlignText">
-                    Inspired by <i>Limit Cycles Oscillations</i> in <i>Dynamical Systems</i>, Totality's artwork is generatively drawn on a
-                    two-dimensional phase space in a closed trajectory having it's trajectory spirals into either infinity or
-                    negative infinity. <br></br><br></br>
+                      Inspired by <i>Limit Cycles Oscillations</i> in <i>Dynamical Systems</i>, Totality's artwork is generatively drawn on a
+                      two-dimensional phase space in a closed trajectory having it's trajectory spirals into either infinity or
+                      negative infinity. <br></br><br></br>
 
+                      Similarly to <i>Limit Cycles</i>, Totality's artwork consists of stable, unstable, and semi-stable limit cycles
                     Similarly to <i>Limit Cycles</i>, Totality's artwork consists of stable, unstable, and semi-stable limit cycles 
+                      Similarly to <i>Limit Cycles</i>, Totality's artwork consists of stable, unstable, and semi-stable limit cycles
+                      oscillations with a spherical structure emerged from its chaotic systems, considering a dynamic system
                     oscillations with a spherical structure emerged from its chaotic systems, considering a dynamic system 
-                    with a chaotic system is locally unstable yet globally stable with its trajectory spirals diverge/converge
-                    with another but never deviate from its spherical structure.
+                      oscillations with a spherical structure emerged from its chaotic systems, considering a dynamic system
+                      with a chaotic system is locally unstable yet globally stable with its trajectory spirals diverge/converge
+                      with another but never deviate from its spherical structure.
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    Solar Eclipse
+                      Solar Eclipse
                     </h2>
                     <p className="verticalAlignText">
-                    Totality art designs consists of stars, solar eclipse, gravitational force, and magnetic fields and many more.
-                    <br></br><br></br>
-                    Below are a <b>few</b> examples of Totality's artwork
+                      Totality art designs consists of stars, solar eclipse, gravitational force, and magnetic fields and many more.
+                      <br></br><br></br>
+                      Below are a <b>few</b> examples of Totality's artwork
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    Solar Prominence
+                      Solar Prominence
                     </h2>
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
                       <Image className="solar-example" src={require('./solar-prominence.gif')} />
                     </Row>
                     <p className="verticalAlignText">
-                    A <i>Solar Prominence</i>, is referred to a filament when viewed against the solar disk, is a large, bright, gaseous, feature extending outward from the Sun's surface, often in a loop shape. Prominence are anchored to the Sun's surface in the photosphere, and extend outwards into the Solar Corona.
+                      A <i>Solar Prominence</i>, is referred to a filament when viewed against the solar disk, is a large, bright, gaseous, feature extending outward from the Sun's surface, often in a loop shape. Prominence are anchored to the Sun's surface in the photosphere, and extend outwards into the Solar Corona.
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    Baily's Beads
+                      Baily's Beads
                     </h2>
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
                       <Image className="solar-example" src={require('./bailey-beads.gif')} />
                     </Row>
                     <p className="verticalAlignText">
-                    The <i>Baily's beads effect</i> or <i>diamond ring effect</i> is a feature of total and annular solar eclipses. As the Moon covers the Sun during a solar eclipse, the rugged topography of the lunar limb allows beads of sunlight to shine through in some places while not in others.
+                      The <i>Baily's beads effect</i> or <i>diamond ring effect</i> is a feature of total and annular solar eclipses. As the Moon covers the Sun during a solar eclipse, the rugged topography of the lunar limb allows beads of sunlight to shine through in some places while not in others.
                     </p>
                   </Col>
                 </Row>
@@ -715,54 +728,56 @@ function App(props) {
                       <Image className="solar-example" src={require('./limit-cycle.png')} />
                     </Row>
                     <Row style={{ marginTop: "3rem" }}>
-                    <Col xs={{ span: 5, offset: 0 }} lg={{ span: 6, offset: 2 }}>
-                      <p><b>Where</b></p>
-                      <p>min x = -5, max x = 5</p>
-                      <p>min y = -5, max y =5</p>
-                    </Col>
-                    <Col xs={{ span: 11, offset: 3 }} lg={{ span: 6, offset: 2 }}>
-                      <br></br><br></br>
-                      <p>x'=x-y-x^3-x*y^2</p>
-                      <p>y'=x+y-x^2*y-y^3</p>
-                    </Col>
-                    <Col xs={{ span: 5, offset: 0 }} lg={{ span: 6, offset: 2 }}>
-                      <br></br><br></br>
-                      <a className="icon" href="https://aeb019.hosted.uark.edu/pplane.html"><p>Try it <FontAwesomeIcon icon={faExternalLinkAlt}/></p></a>
-                    </Col>
-                  </Row>
+                      <Col xs={{ span: 5, offset: 0 }} lg={{ span: 6, offset: 2 }}>
+                        <p><b>Where</b></p>
+                        <p>min x = -5, max x = 5</p>
+                        <p>min y = -5, max y =5</p>
+                      </Col>
+                      <Col xs={{ span: 11, offset: 3 }} lg={{ span: 6, offset: 2 }}>
+                        <br></br><br></br>
+                        <p>x'=x-y-x^3-x*y^2</p>
+                        <p>y'=x+y-x^2*y-y^3</p>
+                      </Col>
+                      <Col xs={{ span: 5, offset: 0 }} lg={{ span: 6, offset: 2 }}>
+                        <br></br><br></br>
+                        <a className="icon" href="https://aeb019.hosted.uark.edu/pplane.html"><p>Try it <FontAwesomeIcon icon={faExternalLinkAlt} /></p></a>
+                      </Col>
+                    </Row>
                   </Col>
                   <Col span={19}>
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    Example of Totality Art
+                      Example of Totality Art
                     </h2>
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
                       <Image className="solar-example" src={require('./totality-example-204.gif')} />
                     </Row>
-                    <p>The example is inspired by the <i>Limit Cycles</i>, which can be visualized as an Eclipse with a tinge of <i>Chaos</i>, which can be imagined as Solar 
-                      Prominences of the Sun emerging dense clouds of incandescent ionized gas to protect from the Sun's 
-                      chromosphere into the corona. 
+                    <p>The example is inspired by the <i>Limit Cycles</i>, which can be visualized as an Eclipse with a tinge of <i>Chaos</i>, which can be imagined as Solar
+                      Prominences of the Sun emerging dense clouds of incandescent ionized gas to protect from the Sun's
+                      chromosphere into the corona.
                       <br></br><br></br>
-                      The curvature trajectories that converges into the spherical structure can be seen as magnetic fields 
+                      The curvature trajectories that converges into the spherical structure can be seen as magnetic fields
                       manifesting in the void of our overall universe.
                     </p>
                     <br></br><br></br>
-                    <p>Created by the following algorithm:</p> 
+                    <p>Created by the following algorithm:</p>
                     <Row style={{ marginTop: "3rem" }}>
-                    <Col xs={{ span: 10, offset: 0 }} lg={{ span: 10, offset: 2 }}>
-                      <p><i>p</i> - Polarity of closed trajectory spirals into infinity or negative infinity</p>
-                      <p><i>x</i> - Horizontal Variation</p>
-                      <p><i>y</i> - Vertical Variation</p>
-                      <p><i>d</i> - Density of the convergence/divergence of trajectory spirals</p>
-                      <p><i>cv</i> - Chaos Variation</p>
-                      <p><i>ca</i> - Chaos Amplifier</p>
-                      <p><i>trigo</i> - Trigonometric Identities</p>
-                    </Col>
-                    <Col xs={{ span: 10, offset: 4 }} lg={{ span: 10, offset: 2 }}>
-                      <p><b>Where</b></p>
+                      <Col xs={{ span: 10, offset: 0 }} lg={{ span: 10, offset: 2 }}>
+                        <p><i>p</i> - Polarity of closed trajectory spirals into infinity or negative infinity</p>
+                        <p><i>x</i> - Horizontal Variation</p>
+                        <p><i>y</i> - Vertical Variation</p>
+                        <p><i>d</i> - Density of the convergence/divergence of trajectory spirals</p>
+                        <p><i>cv</i> - Chaos Variation</p>
+                        <p><i>ca</i> - Chaos Amplifier</p>
+                        <p><i>trigo</i> - Trigonometric Identities</p>
+                      </Col>
+                      <Col xs={{ span: 10, offset: 4 }} lg={{ span: 10, offset: 2 }}>
+                        <p><b>Where</b></p>
+                        <p>x axis = <i>p * x^d - trigo(y^cv) * ca</i></p>
                       <p>x axis = <i>p * x^d - trigo(y^cv) * ca</i></p> 
-                      <p>y axis = <i>p * y^d - trigo(x^cv) * ca</i></p><br></br>
-                      <p><b>Note: Not all Totality art are using same algorithm</b></p>
-                    </Col>
+                        <p>x axis = <i>p * x^d - trigo(y^cv) * ca</i></p>
+                        <p>y axis = <i>p * y^d - trigo(x^cv) * ca</i></p><br></br>
+                        <p><b>Note: Not all Totality art are using same algorithm</b></p>
+                      </Col>
 
                     </Row>
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "5rem" }}>
@@ -775,10 +790,10 @@ function App(props) {
                       <Image className="solar-example" src={require('./rotate-left.gif')} />
                       <Image className="solar-example" src={require('./rotate-right.gif')} />
                     </Row>
-                    <p>Totality's artwork animation is inspired by the <i>polarity reversals</i> that occurs on our Earth, Jupiter, and 
+                    <p>Totality's artwork animation is inspired by the <i>polarity reversals</i> that occurs on our Earth, Jupiter, and
                       Saturn, where magnetic fields can become unstable and the <i>polarity</i> would be reversed changing the
                       planet's life and climate. <br></br><br></br>
-                      
+
                       Totality's artwork rotational direction is determined by the <i>polarity</i> of the x and y axis, where the
                       polarities competes itself of which would be dominant. The dominant <i>polarity</i> decides the rotational
                       direction of each Totality's artwork
@@ -800,7 +815,7 @@ function App(props) {
                   </Col>
                 </Row>
               </div>
-          
+
               <div className="section">
                 <Row justify="center">
                   <Col span={19}>
@@ -809,7 +824,7 @@ function App(props) {
                     </h2>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                    What is Generative Art?
+                      What is Generative Art?
                     </h2>
                     <p className="verticalAlignText">
                       Generative Arts are designs generated, composed, or constructed through computer software algorithms, or similar mathematical, or mechanical autonomous processes. <br></br><br></br>
@@ -829,16 +844,16 @@ function App(props) {
                       Why you should hold Totality artworks?
                     </h2>
                     <p className="verticalAlignText">
-                    Totality's one of a kind artwork is written, generated, and animated in <u>R programming language</u>.
-                    Which sets us apart from previous generative art projects that commonly uses JavaScript library p5js. <br></br><br></br>
+                      Totality's one of a kind artwork is written, generated, and animated in <u>R programming language</u>.
+                      Which sets us apart from previous generative art projects that commonly uses JavaScript library p5js. <br></br><br></br>
 
-                    By holding Totality artwork, grants holders <u>access to exclusive discord channel</u> where in-depth knowledge
-                    sharing of artistry, creative process of generating art, and technology development such as NFT
-                    generation, Front-end & Backend development, off-chain whitelisting, and smart contract development. <br></br><br></br>
+                      By holding Totality artwork, grants holders <u>access to exclusive discord channel</u> where in-depth knowledge
+                      sharing of artistry, creative process of generating art, and technology development such as NFT
+                      generation, Front-end & Backend development, off-chain whitelisting, and smart contract development. <br></br><br></br>
 
-                    And lastly, by holding Totality's artwork, we will be <u>redistributing reflection rewards</u> to <b>all Totality artwork
-                    holders</b>. Totality is totally about you. The more Totality artwork you hold, the <b>more rewards</b> will you earn
-                    (ETH) for being a supporter of our community!
+                      And lastly, by holding Totality's artwork, we will be <u>redistributing reflection rewards</u> to <b>all Totality artwork
+                        holders</b>. Totality is totally about you. The more Totality artwork you hold, the <b>more rewards</b> will you earn
+                      (ETH) for being a supporter of our community!
                     </p>
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Totality x Aritsts x Metaverse
@@ -937,23 +952,23 @@ function App(props) {
                     <h2 style={{ fontSize: "5rem" }}>
                       Join our Umbraphile Community
                     </h2>
-                  
+
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Our Vision
                     </h2>
                     <p className="verticalAlignText">
-                    We aim to help in the development of off-chain capabilities with Web3 and other forms of generative arts,
-                    focusing on the NFT ecosystem. <br></br><br></br>
+                      We aim to help in the development of off-chain capabilities with Web3 and other forms of generative arts,
+                      focusing on the NFT ecosystem. <br></br><br></br>
 
-                    We strive to deliver life changing artistry and technology development with our Umbraphile community to
-                    enrich creative process of generating art, Web3 developments, building of Metaverse.<br></br><br></br>
+                      We strive to deliver life changing artistry and technology development with our Umbraphile community to
+                      enrich creative process of generating art, Web3 developments, building of Metaverse.<br></br><br></br>
 
-                    See you in our curated universe 🌌 <br></br><br></br>
+                      See you in our curated universe 🌌 <br></br><br></br>
                     </p>
                     <span>
-                      <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter} size="3x" className="icon"/></a>
-                      <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord} size="3x" className="icon"/></a>
+                      <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter} size="3x" className="icon" /></a>
+                      <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord} size="3x" className="icon" /></a>
                     </span>
                     <br></br><br></br><br></br><br></br>
                   </Col>
@@ -962,7 +977,7 @@ function App(props) {
             </div>
           </Route>
 
-          {/* <Route path="/debugcontracts">
+          <Route path="/debugcontracts">
             <Contract
               name="Totality"
               signer={userSigner}
@@ -970,7 +985,7 @@ function App(props) {
               address={address}
               blockExplorer={blockExplorer}
             />
-          </Route> */}
+          </Route>
         </Switch>
       </BrowserRouter>
 
@@ -978,20 +993,20 @@ function App(props) {
 
       {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
       <div style={{ position: "fixed", right: 0, top: 0, padding: "10px 0 0 0", backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100vw" }}>
-        <h1 style={{ marginLeft:20, textAlign: "left"}}>TOTALITY
-        <Account
-          address={address}
-          // localProvider={localProvider}
-          // userSigner={userSigner}
-          mainnetProvider={mainnetProvider}
-          // price={price}
-          web3Modal={web3Modal}
-          loadWeb3Modal={loadWeb3Modal}
-          logoutOfWeb3Modal={logoutOfWeb3Modal}
-          blockExplorer={blockExplorer}
-        />
+        <h1 style={{ marginLeft: 20, textAlign: "left" }}>TOTALITY
+          <Account
+            address={address}
+            // localProvider={localProvider}
+            // userSigner={userSigner}
+            mainnetProvider={mainnetProvider}
+            // price={price}
+            web3Modal={web3Modal}
+            loadWeb3Modal={loadWeb3Modal}
+            logoutOfWeb3Modal={logoutOfWeb3Modal}
+            blockExplorer={blockExplorer}
+          />
         </h1>
-        
+
       </div>
     </div>
   );
