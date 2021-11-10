@@ -669,10 +669,6 @@ function App(props) {
                       negative infinity. <br></br><br></br>
 
                       Similarly to <i>Limit Cycles</i>, Totality's artwork consists of stable, unstable, and semi-stable limit cycles
-                    Similarly to <i>Limit Cycles</i>, Totality's artwork consists of stable, unstable, and semi-stable limit cycles 
-                      Similarly to <i>Limit Cycles</i>, Totality's artwork consists of stable, unstable, and semi-stable limit cycles
-                      oscillations with a spherical structure emerged from its chaotic systems, considering a dynamic system
-                    oscillations with a spherical structure emerged from its chaotic systems, considering a dynamic system 
                       oscillations with a spherical structure emerged from its chaotic systems, considering a dynamic system
                       with a chaotic system is locally unstable yet globally stable with its trajectory spirals diverge/converge
                       with another but never deviate from its spherical structure.
