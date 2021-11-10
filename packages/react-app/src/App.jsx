@@ -949,7 +949,7 @@ function App(props) {
                     We strive to deliver life changing artistry and technology development with our Umbraphile community to
                     enrich creative process of generating art, Web3 developments, building of Metaverse.<br></br><br></br>
 
-                    See you in our curated universe 🪐 <br></br><br></br>
+                    See you in our curated universe 🌌 <br></br><br></br>
                     </p>
                     <span>
                       <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter} size="3x" className="icon"/></a>
