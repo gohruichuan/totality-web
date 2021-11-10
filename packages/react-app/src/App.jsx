@@ -655,11 +655,11 @@ function App(props) {
                     Limit Cycles Oscillations
                     </h2>
                     <p className="verticalAlignText">
-                    Inspired by Limit Cycles Oscillations in Dynamical Systems, Totality's artwork is generatively drawn on a
+                    Inspired by <i>Limit Cycles Oscillations</i> in <i>Dynamical Systems</i>, Totality's artwork is generatively drawn on a
                     two-dimensional phase space in a closed trajectory having it's trajectory spirals into either infinity or
                     negative infinity. <br></br><br></br>
 
-                    Similarly to Limit Cycles, Totality's artwork consists of stable, unstable, and semi-stable limit cycles 
+                    Similarly to <i>Limit Cycles</i>, Totality's artwork consists of stable, unstable, and semi-stable limit cycles 
                     oscillations with a spherical structure emerged from its chaotic systems, considering a dynamic system 
                     with a chaotic system is locally unstable yet globally stable with its trajectory spirals diverge/converge
                     with another but never deviate from its spherical structure.
@@ -681,8 +681,7 @@ function App(props) {
                       <Image className="solar-example" src={require('./solar-prominence.gif')} />
                     </Row>
                     <p className="verticalAlignText">
-                    A Solar Prominence, is referred to a filament when viewed against the solar disk, is a large, bright, gaseous, feature extending outward from the Sun's surface, often in a loop shape. <br></br><br></br>
-                    Prominence are anchored to the Sun's surface in the photosphere, and extend outwards into the Solar Corona.
+                    A <i>Solar Prominence</i>, is referred to a filament when viewed against the solar disk, is a large, bright, gaseous, feature extending outward from the Sun's surface, often in a loop shape. Prominence are anchored to the Sun's surface in the photosphere, and extend outwards into the Solar Corona.
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
@@ -692,7 +691,7 @@ function App(props) {
                       <Image className="solar-example" src={require('./bailey-beads.gif')} />
                     </Row>
                     <p className="verticalAlignText">
-                    The Baily's beads effect or diamond ring effect is a feature of total and annular solar eclipses. As the Moon covers the Sun during a solar eclipse, the rugged topography of the lunar limb allows beads of sunlight to shine through in some places while not in others.
+                    The <i>Baily's beads effect</i> or <i>diamond ring effect</i> is a feature of total and annular solar eclipses. As the Moon covers the Sun during a solar eclipse, the rugged topography of the lunar limb allows beads of sunlight to shine through in some places while not in others.
                     </p>
                   </Col>
                 </Row>
@@ -739,7 +738,7 @@ function App(props) {
                     <Row type="flex" align="center" style={{ alignItems: 'center' }}>
                       <Image className="solar-example" src={require('./totality-example-204.gif')} />
                     </Row>
-                    <p>The example is inspired by the <i>Limit Cycles</i>, which can be visualized as an Eclipse with a tinge of Chaos, which can be imagined as Solar 
+                    <p>The example is inspired by the <i>Limit Cycles</i>, which can be visualized as an Eclipse with a tinge of <i>Chaos</i>, which can be imagined as Solar 
                       Prominences of the Sun emerging dense clouds of incandescent ionized gas to protect from the Sun's 
                       chromosphere into the corona. 
                       <br></br><br></br>
@@ -776,11 +775,11 @@ function App(props) {
                       <Image className="solar-example" src={require('./rotate-left.gif')} />
                       <Image className="solar-example" src={require('./rotate-right.gif')} />
                     </Row>
-                    <p>Totality's artwork animation is inspired by the polarity reversals that occurs on our Earth, Jupiter, and 
+                    <p>Totality's artwork animation is inspired by the <i>polarity reversals</i> that occurs on our Earth, Jupiter, and 
                       Saturn, where magnetic fields can become unstable and the polarity would be reversed changing the
                       planet's life and climate. <br></br><br></br>
                       
-                      Totality's artwork rotational direction is determined by the polarity of the x and y axis, where the
+                      Totality's artwork rotational direction is determined by the <i>polarity</i> of the x and y axis, where the
                       polarities competes itself of which would be dominant. The dominant polarity decides the rotational
                       direction of each Totality's artwork
                     </p>
@@ -795,7 +794,7 @@ function App(props) {
                       <Image className="solar-example" src={require('./surge.png')} />
                     </Row>
                     <p style={{ marginTop: "3rem" }}>
-                      Totality's artwork is infused with a active rotation that is created by integrating a scaling function in ggplot2. This randomly create a surge at either sides on the x-axis where the polarities competes itself of which side would be dominant; the dominant polarity would therefore decides the rotational direction. This surge can be understood as a polarity reversal, like in our milky way where planet's magnetic field can become unstable and their polarity would be reversed changing the climate 
+                      Totality's artwork is infused with a active rotation that is created by integrating a scaling function in ggplot2. This randomly create a <i>surge</i> on the x-axis on the decided the rotational direction by the <i>dominant polarity</i>. This <i>surge</i> can be understood as unusual and mysterious, like in our milky way.
                     </p>
 
                   </Col>
@@ -824,8 +823,6 @@ function App(props) {
                     <p className="verticalAlignText">
                       On May 29, 1919, the solar eclipse affirmed the prediction of Einstein’s theory of general relativity,
                       ascribing gravity to a warp in the geometry of space-time, that gravity could bend light beams. <br></br><br></br>
-
-                      Totality art designs consists of stars, solar eclipse, gravitational force, magnetic fields, and many more
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
