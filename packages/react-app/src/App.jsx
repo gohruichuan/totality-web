@@ -607,9 +607,9 @@ function App(props) {
                       Umbraphile Universe
                     </h2>
                     <p>
-                      TOTALITY is an active, generative NFT project with a collection of 1,919 uniquely generative art composed of 18 distinct chaotic systems that each develop their own characteristics of <u>3,840,000,000</u> combinations <br></br><br></br>
+                      TOTALITY is an active, generative NFT project with a collection of <u>1,919</u> uniquely generative art composed of <u>18 distinct chaotic systems</u> that each develop their own characteristics of <u>3,840,000,000</u> combinations <br></br><br></br>
 
-                      TOTALITY's artwork synthesizes methodical art using trigonometry cipher written on R-programming typically used in statistical computing
+                      TOTALITY's artwork synthesizes methodical art using trigonometry cipher written on <u>R programming language</u> typically used in statistical computing
                     </p> <br></br><br></br>
                     <p><b>#UMBRAPHILE</b></p>
                     <p><i>noun</i></p>
@@ -776,11 +776,11 @@ function App(props) {
                       <Image className="solar-example" src={require('./rotate-right.gif')} />
                     </Row>
                     <p>Totality's artwork animation is inspired by the <i>polarity reversals</i> that occurs on our Earth, Jupiter, and 
-                      Saturn, where magnetic fields can become unstable and the polarity would be reversed changing the
+                      Saturn, where magnetic fields can become unstable and the <i>polarity</i> would be reversed changing the
                       planet's life and climate. <br></br><br></br>
                       
                       Totality's artwork rotational direction is determined by the <i>polarity</i> of the x and y axis, where the
-                      polarities competes itself of which would be dominant. The dominant polarity decides the rotational
+                      polarities competes itself of which would be dominant. The dominant <i>polarity</i> decides the rotational
                       direction of each Totality's artwork
                     </p>
 
