@@ -838,7 +838,7 @@ function App(props) {
                         The more Eclipses you hold, the more rewards will you earn (ETH) for being a supporter of our community! <br></br><br></br>
 
                         <b>Totality's Uniqueness</b> <br></br>
-                        Totality's artwork is <u>written and animated</u> in R programming language. Which sets us apart from previous generative art projects which commonly uses Javascript library p5js.
+                        Totality's artwork is written and animated in <u>R programming language</u>. Which sets us apart from previous generative art projects which commonly uses Javascript library p5js.
                         <br></br><br></br><br></br><br></br>
                       <b>The community and I will be sharing our knowledge of the following</b><br></br><br></br>
                         <b>NFT Art</b> <br></br>
