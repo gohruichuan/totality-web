@@ -829,7 +829,7 @@ function App(props) {
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                      Why should you hold Totality artwork?
+                      Why you should hold Totality artworks?
                     </h2>
                     <p className="verticalAlignText">
                         <b>NFT Art</b> <br></br>
