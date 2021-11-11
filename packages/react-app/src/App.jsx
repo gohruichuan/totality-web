@@ -403,6 +403,8 @@ function App(props) {
       <h1 style={{ marginTop: 50 }}>
         Minting Coming Soon...
         <a href="https://discord.gg/U6QFZsJJc4"><b><p>Get whitelisted for our presale <FontAwesomeIcon icon={faExternalLinkAlt} /></p></b></a>
+        <p>Presale Mint Price: 0.0919<span className="ether">Ξ</span> each</p>
+        <p>Launch Mint Price: 0.1919<span className="ether">Ξ</span> each</p> 
       </h1>
     )
   } else {
@@ -837,6 +839,14 @@ function App(props) {
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
+                      How much will Totality's artwork cost?
+                    </h2>
+                    <p className="verticalAlignText">
+                      <p>Presale Mint Price: 0.0919<span className="ether">Ξ</span> each</p>
+                      <p>Launch Mint Price: 0.1919<span className="ether">Ξ</span> each</p> 
+                    </p>
+
+                    <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
                       Why you should hold Totality artworks?
                     </h2>
                     <p className="verticalAlignText">
@@ -1002,7 +1012,6 @@ function App(props) {
             blockExplorer={blockExplorer}
           />
         </h1>
-
       </div>
     </div>
   );
