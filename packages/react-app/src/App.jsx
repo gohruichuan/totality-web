@@ -35,7 +35,7 @@ const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend 
 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
-const NETWORKCHECK = true;
+const NETWORKCHECK = false;
 const IS_PRESALE_BUY = false;
 const IS_LAUNCH_BUY = false;
 let PRICE = 0.1919;
@@ -301,7 +301,7 @@ function App(props) {
 
   useEffect(() => {
     // console.warn("web3Modal.cachedProvider ", web3Modal.cachedProvider);
-    if (web3Modal.cachedProvider) {
+    if (web3Modal.cachedProvider && (IS_PRESALE_BUY || IS_LAUNCH_BUY)) {
       loadWeb3Modal();
     }
   }, [loadWeb3Modal]);
@@ -841,7 +841,7 @@ function App(props) {
                     </h2>
                     <p className="verticalAlignText">
                       Totality's one of a kind artwork is written, generated, and animated in <u>R programming language</u>.
-                      Which sets us apart from previous generative art projects that commonly uses JavaScript library p5js. <br></br><br></br>
+                      Which sets us apart from previous generative art projects that commonly uses JavaScript library p5js. This also means there are <b>NO</b> post-processings (Photoshop, After Effects, or any third-party software effects) involved. Totality's artwork effects are 100% authentically <b>achieved by code</b>. <br></br><br></br>
 
                       By holding Totality artwork, grants holders <u>access to exclusive discord channel</u> where in-depth knowledge
                       sharing of artistry, creative process of generating art, and technology development such as NFT
