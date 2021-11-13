@@ -39,6 +39,8 @@ const NETWORKCHECK = false;
 const IS_PRESALE_BUY = false;
 const IS_LAUNCH_BUY = false;
 let PRICE = 0.1919;
+let MAX_MINT = 5;
+
 // 🛰 providers
 if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
 const scaffoldEthProvider = null && navigator.onLine ? new ethers.providers.StaticJsonRpcProvider("https://rpc.scaffoldeth.io:48544") : null;
@@ -356,7 +358,7 @@ function App(props) {
 
   let [whitelistMessage, setWhitelistMessage] = useState();
 
-  let [tokenQuantity, setTokenQuantity] = useState(1); // default tokenQuantity
+  let [tokenQuantity, setTokenQuantity] = useState(1);
 
   let [isCaptchaVerified, setCaptchaVerified] = useState(false);
 
@@ -410,11 +412,11 @@ function App(props) {
   } else {
 
     if (IS_PRESALE_BUY) {
+      MAX_MINT = 2;
       PRICE = 0.0919;
     }
 
     mintDisplay = (
-
       <div style={{ margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ padding: 32 }}>
           <ReCAPTCHA
@@ -426,17 +428,41 @@ function App(props) {
             <span style={{ marginRight: 88 }}>Price per Totality</span>
             <span style={{ float: "right" }}> {PRICE} ETH</span>
           </h2>
-          <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} style={{ width: "23rem", borderRadius: 10 }} onChange={event => {
-            setTokenQuantity(event.target.value)
+          
+          <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} value={tokenQuantity} style={{ width: "23rem", borderRadius: 10 }} onChange={event => {
+
+            let min;
+            let max;
+            let value  = event.target.value;
+            if(IS_PRESALE_BUY){
+              min = 1;
+              max = 2;
+            } else {
+              min = 1;
+              max = 5;
+            }
+
+            value = Math.max(Number(min), Math.min(Number(max), Number(value)));
+            setTokenQuantity(value)
           }} />
-          <br></br><br></br>
+
+          {IS_PRESALE_BUY ? (
+            <h3>
+              <span>Max {MAX_MINT} mints per Whitelisted Wallet Address</span>
+            </h3>
+          ) : (
+            <h3>
+              <span>Max {MAX_MINT} mints per transaction</span>
+            </h3>
+          )}
+          <br></br>
           <h2>
             <span style={{ marginRight: 50 }}> {totalSupply} / 1919 Minted</span>
             <span style={{ float: "right" }}>Total {(tokenQuantity * PRICE).toFixed(4)} ETH</span>
           </h2>
 
           <br></br><br></br>
-          <Button disabled={!isCaptchaVerified} style={{ borderRadius: 10, backgroundColor: "white" }} size="large"
+          <Button disabled={!isCaptchaVerified || isLoading} style={{ borderRadius: 10, backgroundColor: "white" }} size="large"
             onClick={() => {
               if (tokenQuantity === 0) {
                 setWhitelistMessage(
@@ -451,11 +477,13 @@ function App(props) {
               } else {
                 if (!IS_PRESALE_BUY && IS_LAUNCH_BUY) { // Launch
                   setIsLoading(true);
-                  const etherPrice = (tokenQuantity * PRICE).toString();
+                  let etherPrice = (tokenQuantity * PRICE);
                   console.warn("LAUNCH MINTING!");
                   console.warn("tokenQuantity ! ", tokenQuantity);
                   console.warn("etherPrice ! ", etherPrice);
-                  tx(writeContracts.Totality.buy(tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }),
+
+                  etherPrice = Math.round(etherPrice * 1e4) / 1e4;
+                  tx(writeContracts.Totality.buy(tokenQuantity, { value: ethers.utils.parseEther(etherPrice.toString()) }),
                     update => {
                       setIsLoading(false);
                       if (update.status === "confirmed" || update.status === 1) {
@@ -479,16 +507,17 @@ function App(props) {
                   const getValidateWhitelist = async () => {
                     await validateWhitelist(address, tokenQuantity).then(res => {
                       if (res.result === "Whitelisted") {
-                        const etherPrice = (tokenQuantity * PRICE).toString();
-
+                        let etherPrice = (tokenQuantity * PRICE);
                         console.warn("PRESALE MINTING!");
                         console.warn("tokenQuantity ! ", tokenQuantity);
                         console.warn("etherPrice ! ", etherPrice);
-
+      
+                        etherPrice = Math.round(etherPrice * 1e4) / 1e4;
+      
                         var bytes = CryptoJS.AES.decrypt(res.ciphertext, process.env.REACT_APP_CRYPTO_SECRET_KEY);
                         var decrypted = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 
-                        tx(writeContracts.Totality.presaleBuy(decrypted.signature, decrypted.nonce, decrypted.tokenQuantity, { value: ethers.utils.parseEther(etherPrice) }),
+                        tx(writeContracts.Totality.presaleBuy(decrypted.signature, decrypted.nonce, decrypted.tokenQuantity, { value: ethers.utils.parseEther(etherPrice.toString()) }),
                           update => {
                             setIsLoading(false);
 
