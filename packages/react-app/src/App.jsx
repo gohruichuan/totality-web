@@ -94,10 +94,13 @@ function App(props) {
     async function getAddress() {
       if (web3Modal.cachedProvider && userSigner) {
         const newAddress = await userSigner.getAddress();
+          console.warn("newAddress ", newAddress);
         setAddress(newAddress);
       }
     }
+    if(!address){
     getAddress();
+    }
   }, [userSigner]);
 
   // You can warn the user if you would like them to be on a specific network
@@ -428,14 +431,14 @@ function App(props) {
             <span style={{ float: "right" }}> {PRICE} ETH</span>
           </h2>
           
-          <Input placeholder="Quantity" maxLength={1} defaultValue={tokenQuantity} value={tokenQuantity} style={{ width: "23rem", borderRadius: 10 }} onChange={event => {
+          <Input placeholder="Quantity" maxLength={3} defaultValue={tokenQuantity} value={tokenQuantity} style={{ width: "23rem", borderRadius: 10 }} onChange={event => {
 
             let min;
             let max;
             let value  = event.target.value;
             if(IS_PRESALE_BUY){
               min = 1;
-              max = 2;
+              max = 100;
             } else {
               min = 1;
               max = 5;
@@ -446,9 +449,10 @@ function App(props) {
           }} />
 
           {IS_PRESALE_BUY ? (
-            <h3>
-              <span>Max {MAX_MINT} mints per Whitelisted Wallet Address</span>
-            </h3>
+            // <h3>
+            //   <span>Max {MAX_MINT} mints per Whitelisted Wallet Address</span>
+            // </h3>
+            ""
           ) : (
             <h3>
               <span>Max {MAX_MINT} mints per transaction</span>
@@ -1030,6 +1034,8 @@ function App(props) {
         <h1 style={{ marginLeft: 20, textAlign: "left" }}>TOTALITY
           <Account
             address={address}
+            IS_LAUNCH_BUY = {IS_LAUNCH_BUY}
+            IS_PRESALE_BUY = {IS_PRESALE_BUY}
             // localProvider={localProvider}
             // userSigner={userSigner}
             mainnetProvider={mainnetProvider}

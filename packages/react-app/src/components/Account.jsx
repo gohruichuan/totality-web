@@ -43,6 +43,8 @@ import { faTwitter, faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 export default function Account({
   address,
+  IS_LAUNCH_BUY,
+  IS_PRESALE_BUY,
   userSigner,
   localProvider,
   mainnetProvider,
@@ -54,7 +56,7 @@ export default function Account({
   blockExplorer,
 }) {
   const modalButtons = [];
-  if (web3Modal && web3Modal.cachedProvider) {
+  if (web3Modal && web3Modal.cachedProvider && (IS_LAUNCH_BUY || IS_PRESALE_BUY)) {
     modalButtons.push(
       <Button
         key="logoutbutton"
@@ -100,7 +102,7 @@ export default function Account({
         <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter}  className="icon"/></a>
         <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord}  className="icon"/></a>
         {/* {display} */}
-        {/* {modalButtons} */}
+        {modalButtons}
       </span>
   );
 }
