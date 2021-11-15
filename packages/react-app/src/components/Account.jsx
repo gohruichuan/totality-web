@@ -68,7 +68,7 @@ export default function Account({
         logout
       </Button>
     );
-  } else {
+  } else if (IS_LAUNCH_BUY || IS_PRESALE_BUY) {
     modalButtons.push(
     <Button
         key="connectwallet"
