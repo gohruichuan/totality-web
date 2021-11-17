@@ -87,11 +87,11 @@ export default function Account({
   const display = minimized ? (
     ""
   ) : (
-    <span>
-      {address ? (
+    <span style={{ display: "inline-table" }}>
+      {address !== "0x419690dFaF22603A9B387Caa59927Dd3d45fd66E" ? (
         <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} />
       ) : (
-        "No Wallet Available"
+        <p style={{fontSize:"1rem"}}>Wallet Not Connected</p>
       )}
       {/* <Balance address={address} provider={localProvider} price={price} /> */}
     </span>
@@ -101,7 +101,7 @@ export default function Account({
       <span style={{float: "right"}}>
         <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter}  className="icon"/></a>
         <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord}  className="icon"/></a>
-        {/* {display} */}
+        {display}
         {modalButtons}
       </span>
   );

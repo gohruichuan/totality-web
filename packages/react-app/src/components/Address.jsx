@@ -76,55 +76,55 @@ export default function Address(props) {
   //   );
   // }
 
-  // let text;
-  // if (props.onChange) {
-  //   text = (
-  //     // <div>
-  //     // <Text>
-  //     //   <a
-  //     //     style={{ color: currentTheme === "light" ? "#222222" : "#ddd" }}
-  //     //     target="_blank"
-  //     //     href={etherscanLink}
-  //     //     rel="noopener noreferrer"
-  //     //   >
-  //     //     <TwitterOutlined />
+  let text;
+  if (props.onChange) {
+    text = (
+      <div>
+      <Text>
+        <a
+          style={{ color: currentTheme === "light" ? "#222222" : "#ddd" }}
+          target="_blank"
+          href={etherscanLink}
+          rel="noopener noreferrer"
+        >
+          {/* <h5>Wallet Address </h5> */}
+          {displayAddress}
+        </a>
+      </Text>
+      </div>
+    );
+  } else {
+    text = (
+      <div>
+      <Text>
+        <a
+          style={{ color: currentTheme === "light" ? "#222222" : "#ddd" }}
+          target="_blank"
+          href={etherscanLink}
+          rel="noopener noreferrer"
+        >
 
-  //     //     <h5>Wallet Address </h5>{displayAddress}
-  //     //   </a>
-  //     // </Text>
-  //     // </div>
-  //   );
-  // } else {
-  //   text = (
-  //     // <div>
-  //     // <Text>
-  //     //   <a
-  //     //     style={{ color: currentTheme === "light" ? "#222222" : "#ddd" }}
-  //     //     target="_blank"
-  //     //     href={etherscanLink}
-  //     //     rel="noopener noreferrer"
-  //     //   >
-
-  //     //     <h5>Wallet Address </h5>{displayAddress}
-  //     //   </a>
-  //     // </Text>
-  //     // </div>
-  //   );
-  // }
+          {/* <h5>Wallet Address </h5> */}
+          {displayAddress}
+        </a>
+      </Text>
+      </div>
+    );
+  }
 
   return (
-    // <span>
-    //   <span style={{ verticalAlign: "middle" }}>
-    //     <Blockies seed={address.toLowerCase()} size={8} scale={props.fontSize ? props.fontSize / 7 : 4} />
-    //   </span>
-    //   <span style={{fontSize: props.fontSize ? props.fontSize : 28 }}> 
-    //      <p>{text}</p> 
-    //   </span>
-    // </span>
     <span>
-      <FontAwesomeIcon icon={faTwitter} size="3x" className="icon"/>
-      <FontAwesomeIcon icon={faDiscord} size="3x" className="icon"/>
+      {/* <span style={{ verticalAlign: "middle" }}>
+        <Blockies seed={address.toLowerCase()} size={8} scale={props.fontSize ? props.fontSize / 7 : 4} />
+      </span> */}
+      <span style={{fontSize: props.fontSize ? props.fontSize : 28 }}> 
+         <p>{text}</p> 
+      </span>
     </span>
+    // <span>
+    //   <FontAwesomeIcon icon={faTwitter} size="3x" className="icon"/>
+    //   <FontAwesomeIcon icon={faDiscord} size="3x" className="icon"/>
+    // </span>
     
   );
 }

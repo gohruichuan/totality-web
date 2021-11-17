@@ -98,9 +98,9 @@ function App(props) {
         setAddress(newAddress);
       }
     }
-    if(!address){
+    // if(!address){
     getAddress();
-    }
+    // }
   }, [userSigner]);
 
   // You can warn the user if you would like them to be on a specific network
