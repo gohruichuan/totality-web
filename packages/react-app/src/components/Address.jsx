@@ -44,9 +44,10 @@ export default function Address(props) {
 
   if (!address) {
     return (
-      <span>
-        <Skeleton avatar paragraph={{ rows: 1 }} />
-      </span>
+      ""
+      // <span>
+      //   {/* <Skeleton avatar paragraph={{ rows: 1 }} /> */}
+      // </span>
     );
   }
 
