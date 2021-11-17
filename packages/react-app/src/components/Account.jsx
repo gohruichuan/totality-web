@@ -86,7 +86,7 @@ export default function Account({
 
   const display = minimized ? (
     ""
-  ) : (
+  ) : (IS_LAUNCH_BUY || IS_PRESALE_BUY)?(
     <span style={{ display: "inline-table" }}>
       {address !== "0x419690dFaF22603A9B387Caa59927Dd3d45fd66E" ? (
         <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} />
@@ -95,7 +95,7 @@ export default function Account({
       )}
       {/* <Balance address={address} provider={localProvider} price={price} /> */}
     </span>
-  );
+  ) : ("");
 
   return (
       <span style={{float: "right"}}>
