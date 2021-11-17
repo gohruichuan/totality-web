@@ -36,7 +36,7 @@ const targetNetwork = NETWORKS.mainnet; // <------- select your target frontend 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
 const NETWORKCHECK = false;
-const IS_PRESALE_BUY = false;
+const IS_PRESALE_BUY = true;
 const IS_LAUNCH_BUY = false;
 let PRICE = 0.1919;
 let MAX_MINT = 5;
