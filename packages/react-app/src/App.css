@@ -154,6 +154,14 @@ body{
   /* margin: 20px auto; */
 }
 
+.openseaIcon {
+  width: 27px !important;
+  margin-right: 1rem;
+}
+
+.openseaIcon:hover{
+  opacity: 0.8;
+}
 @media only screen and (max-width: 600px) {
 
   .scalable-image{

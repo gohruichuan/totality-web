@@ -6,6 +6,7 @@ import Balance from "./Balance";
 import Wallet from "./Wallet";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { Image } from "antd";
 
 /*
   ~ What it does? ~
@@ -101,6 +102,7 @@ export default function Account({
       <span style={{float: "right"}}>
         <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter}  className="icon"/></a>
         <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord}  className="icon"/></a>
+        <a href="https://opensea.io/collection/totality-by-rei" target="_blank"><Image className="openseaIcon" preview={false} src={require('../opensea.png')}/> </a>
         {display}
         {modalButtons}
       </span>
