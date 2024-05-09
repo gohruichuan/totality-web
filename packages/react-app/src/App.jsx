@@ -1004,10 +1004,10 @@ function App(props) {
 
                       See you in our curated universe 🌌 <br></br><br></br>
                     </p>
-                    <span>
+                    {/* <span>
                       <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter} size="3x" className="icon" /></a>
                       <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord} size="3x" className="icon" /></a>
-                    </span>
+                    </span> */}
                     <br></br><br></br><br></br><br></br>
                   </Col>
                 </Row>

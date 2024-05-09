@@ -100,11 +100,11 @@ export default function Account({
 
   return (
       <span style={{float: "right"}}>
-        <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter}  className="icon"/></a>
+        {/* <a href="https://twitter.com/totalitybyrei"><FontAwesomeIcon icon={faTwitter}  className="icon"/></a>
         <a href="https://discord.gg/U6QFZsJJc4"><FontAwesomeIcon icon={faDiscord}  className="icon"/></a>
         <a href="https://opensea.io/collection/totality-by-rei" target="_blank"><Image className="openseaIcon" preview={false} src={require('../opensea.png')}/> </a>
         {display}
-        {modalButtons}
+        {modalButtons} */}
       </span>
   );
 }
