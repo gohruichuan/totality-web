@@ -650,7 +650,7 @@ function App(props) {
                       Umbraphile Universe
                     </h2>
                     <p>
-                      TOTALITY is an active, generative NFT project with a collection of <u>1,919</u> uniquely generative art composed of <u>18 distinct chaotic systems</u> that each develop their own characteristics of <u>3,840,000,000</u> combinations <br></br><br></br>
+                      TOTALITY is an active, generative NFT project with a collection uniquely generative art composed of <u>18 distinct chaotic systems</u> that each develop their own characteristics of <u>3,840,000,000</u> combinations <br></br><br></br>
 
                       TOTALITY's artwork synthesizes methodical art using trigonometry cipher written on <u>R programming language</u> typically used in statistical computing
                     </p> <br></br><br></br>
@@ -681,9 +681,9 @@ function App(props) {
                         <Image className="scalable-image" src={require('./marketing6.gif')} />
                       </Col>
                     </Row>
-                    <div style={{ textAlign: "-webkit-right" }}>
+                    {/* <div style={{ textAlign: "-webkit-right" }}>
                       {mintDisplay}
-                    </div>
+                    </div> */}
                   </Col>
                 </Row>
               </div>
@@ -846,7 +846,7 @@ function App(props) {
                 </Row>
               </div>
 
-              <div className="section">
+              {/* <div className="section">
                 <Row justify="center">
                   <Col span={19}>
                     <h2 style={{ fontSize: "5rem" }}>
@@ -863,7 +863,7 @@ function App(props) {
                     </p>
 
                     <h2 style={{ marginBottom: "1rem", marginTop: "3rem", fontSize: "2rem" }}>
-                      What is Totality's 1,919 quantity inspiration?
+                      What is Totality's 1,919 inspiration?
                     </h2>
                     <p className="verticalAlignText">
                       On May 29, 1919, the solar eclipse affirmed the prediction of Einstein’s theory of general relativity,
@@ -907,8 +907,8 @@ function App(props) {
                     </p>
                   </Col>
                 </Row>
-              </div>
-              <div className="section">
+              </div> */}
+              {/* <div className="section">
                 <Row justify="center">
                   <Col span={19}>
                     <h2 style={{ fontSize: "5rem" }}>
@@ -982,7 +982,7 @@ function App(props) {
                     </Row>
                   </Col>
                 </Row>
-              </div>
+              </div> */}
 
               <div className="section">
                 <Row justify="center">
